@@ -1,5 +1,5 @@
 #!ipxe
-set reporaw https://raw.githubusercontent.com/amidevous2/wimboot-install/refs/heads/main/
+set reporaw https://raw.githubusercontent.com/amidevous2/wimboot-install/refs/heads/main/netboot
 
 
 :start
@@ -7,9 +7,9 @@ isset ${arch} && goto skip_arch_detect ||
 cpuid --ext 29 && set arch x86_64 || set arch i386
 iseq ${buildarch} arm64 && set arch arm64 ||
 :skip_arch_detect
-chain --autofree ${reporaw}/netboot/boot.cfg ||
+chain --autofree ${reporaw}/boot.cfg ||
 echo Attempting to retrieve latest upstream version number...
-chain --timeout 5000 ${reporaw}/netboot/version.ipxe ||
+chain --timeout 5000 ${reporaw}/version.ipxe ||
 ntp 0.pool.ntp.org ||
 iseq ${cls} serial && goto ignore_cls ||
 set cls:hex 1b:5b:4a  # ANSI clear screen sequence - "^[[J"
@@ -56,7 +56,7 @@ echo ${cls}
 goto ${menu} || goto change_menu
 
 :change_menu
-chain ${reporaw}/netboot/${menu}.ipxe || goto error
+chain ${reporaw}/${menu}.ipxe || goto error
 goto main_menu
 
 :error
@@ -80,7 +80,7 @@ iseq ${arch} i386 && set arch x86_64 && set menu_linux_i386 0 && set menu_linux 
 goto main_menu
 
 :about
-chain https://boot.netboot.xyz/about.ipxe || chain about.ipxe
+chain ${reporaw}/about.ipxe || chain about.ipxe
 goto main_menu
 
 :custom-github
