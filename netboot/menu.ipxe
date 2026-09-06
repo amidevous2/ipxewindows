@@ -1,5 +1,5 @@
 #!ipxe
-set boot_domain raw.githubusercontent.com/amidevous/wimboot-install/refs/heads/main/netboot
+set boot_domain raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/netboot
 
 
 :start
