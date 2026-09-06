@@ -1,0 +1,41 @@
+#!ipxe
+
+echo Checking net0 for DHCP...
+isset ${net0/mac} && ifopen net0 && dhcp net0 || goto dhcpnet1
+echo Received DHCP answer on interface net0 && goto proxycheck
+
+:dhcpnet1
+echo Checking net1 for DHCP...
+isset ${net1/mac} && ifopen net1 && dhcp net1 || goto dhcpnet2
+echo Received DHCP answer on interface net1 && goto proxycheck
+
+:dhcpnet2
+echo Checking net2 for DHCP...
+isset ${net2/mac} && ifopen net2 && dhcp net2 || goto dhcpall
+echo Received DHCP answer on interface net2 && goto proxycheck
+
+:dhcpall
+echo No DHCP answer on any interface, trying proxy DHCP...
+dhcp && goto proxycheck || goto dhcperror
+
+:dhcperror
+echo DHCP error!
+prompt --key s --timeout 10000 DHCP failed, hit 's' for the iPXE shell; reboot in 10 seconds && shell || reboot
+
+:proxycheck
+echo Trying proxy DHCP...
+isset ${proxydhcp/next-server} && set next-server ${proxydhcp/next-server} || goto nextservercheck
+
+:nextservercheck
+echo Checking for next-server...
+isset ${next-server} && goto netboot || goto setserv
+
+:setserv
+echo -n Please enter tftp server: && read next-server && goto netboot || goto setserv
+
+:chainloadfailed
+prompt --key s --timeout 10000 Chainloading failed, hit 's' for the iPXE shell; reboot in 10 seconds && shell || reboot
+
+:netboot
+echo starting netboot to default.ipxe...
+chain https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/netboot.ipxe || goto chainloadfailed
