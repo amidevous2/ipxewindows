@@ -1,4 +1,6 @@
 #!ipxe
+set boot_domain raw.githubusercontent.com/amidevous/wimboot-install/refs/heads/main/netboot
+
 
 :start
 isset ${arch} && goto skip_arch_detect ||
@@ -7,7 +9,7 @@ iseq ${buildarch} arm64 && set arch arm64 ||
 :skip_arch_detect
 chain --autofree boot.cfg ||
 echo Attempting to retrieve latest upstream version number...
-chain --timeout 5000 https://raw.githubusercontent.com/amidevous/wimboot-install/refs/heads/main/netboot/version.ipxe ||
+chain --timeout 5000 https://${boot_domain}/version.ipxe ||
 ntp 0.pool.ntp.org ||
 iseq ${cls} serial && goto ignore_cls ||
 set cls:hex 1b:5b:4a  # ANSI clear screen sequence - "^[[J"
@@ -27,7 +29,7 @@ echo
 echo Please download the latest version from netboot.xyz.
 echo
 echo Attempting to chain to latest version...
-chain --autofree https://raw.githubusercontent.com/amidevous/wimboot-install/refs/heads/main/netboot.ipxe ||
+chain --autofree https://${boot_domain}/netboot.ipxe ||
 :version_up2date
 
 isset ${menu} && goto ${menu} ||
@@ -105,11 +107,11 @@ iseq ${sigs_enabled} true && set sigs_enabled false || set sigs_enabled true
 goto main_menu
 
 :about
-chain https://boot.netboot.xyz/about.ipxe || chain about.ipxe
+chain https://${boot_domain}/about.ipxe || chain about.ipxe
 goto main_menu
 
 :custom-github
-chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom.ipxe || goto error
+chain https://${boot_domain}/custom.ipxe || goto error
 goto main_menu
 
 :custom-url
