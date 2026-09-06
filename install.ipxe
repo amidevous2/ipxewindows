@@ -1,5 +1,5 @@
 #!ipxe
-set reporaw https://raw.githubusercontent.com/amidevous2/wimboot-install/refs/heads/main/
+set reporaw set reporaw https://raw.githubusercontent.com/amidevous2/wimboot-install/refs/heads/main
 
 #choose keymap
 set keymap fr
