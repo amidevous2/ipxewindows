@@ -1,19 +1,9 @@
 #!ipxe
 set menu-timeout 300000
-#set menu-timeout 1
 set submenu-timeout ${menu-timeout}
 isset ${menu-default}
 set menu-default item3
-set nloc ${netX/busloc}
-set pciid ${pci/${nloc}.0.2}${pci/${nloc}.2.2}
 set submenu-timeout ${menu-timeout}
-set commit main
-set winver win7
-set winversion windows7
-set arch1 x86
-set arch2 x86
-set arch3 i386
-set lang french
 set giturl https://github.com/amidevous2/ipxewindows
 set giturlraw https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main
 
