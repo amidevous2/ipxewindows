@@ -56,11 +56,38 @@ iseq ${pciid} 808615be && goto use_e1d68-2 ||
 iseq ${pciid} 8086100f && goto use_e1d68-2 ||
 goto skip_e1d68-2
 :use_e1d68-2
-set startnetx ${startnetx}&drvload=e1d68x64.inf
-initrd     ${giturlraw}/win10/drv/i219v_e1d68/e1d68x64.cat ||
-initrd     ${giturlraw}/win10/drv/i219v_e1d68/e1d68x64.inf ||
-initrd     ${giturlraw}/win10/drv/i219v_e1d68/e1d68x64.sys ||
-initrd     ${giturlraw}/win10/drv/i219v_e1d68/e1dmsg.dll ||
+#set startnetx ${startnetx}&drvload=e1d68x64.inf
+initrd     ${giturlraw}/win7/dvr/x86/vmware/pvscsi.PNF pvscsi.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/pvscsi.cat pvscsi.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/pvscsi.inf pvscsi.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/pvscsi.sys pvscsi.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3d.PNF vm3d.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3d.cat vm3d.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3d.inf vm3d.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3ddevapi.dll vm3ddevapi.dll ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3dgl.dll vm3dgl.dll ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3dmp.sys vm3dmp.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3dum.dll vm3dum.dll ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vm3dum_10.dll vm3dum_10.dll ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmaudio.PNF vmaudio.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmaudio.cat vmaudio.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmaudio.inf vmaudio.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmaudio.sys vmaudio.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmci.PNF vmci.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmci.cat vmci.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmci.inf vmci.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmci.sys vmci.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmmouse.PNF vmmouse.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmmouse.inf vmmouse.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmmouse.sys vmmouse.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmusbmouse.PNF vmusbmouse.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmusbmouse.cat vmusbmouse.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmusbmouse.inf vmusbmouse.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmusbmouse.sys vmusbmouse.sys ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmxnet3.PNF vmxnet3.PNF ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmxnet3.cat vmxnet3.cat ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmxnet3.inf vmxnet3.inf ||
+initrd     ${giturlraw}/win7/dvr/x86/vmware/vmxnet3.sys vmxnet3.sys ||
 :skip_e1d68-2
 iseq ${pciid} 1af41000-2 && goto use_virtio-2 ||
 goto skip_virtio-2
