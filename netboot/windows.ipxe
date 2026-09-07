@@ -173,6 +173,7 @@ initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/aut
 initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
 initrd ${giturl}/releases/download/windows7/boot.wim.x86 boot.wim
 imgstat
+sleep 200
 boot || goto menu
 
 :item3
