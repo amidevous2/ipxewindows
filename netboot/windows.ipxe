@@ -32,7 +32,7 @@ chain ${giturlraw}/netboot.ipxe
 
 :item2
 set conn_type https
-kernel ${giturlraw}/wimboot/i386/wimboot wimboot gui quiet || shell
+kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui quiet
 #initrd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 #initrd ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
 #initrd --name install.bat ${giturlraw}/win7/autounattend/x86/starter/french/legacy/install.bat
