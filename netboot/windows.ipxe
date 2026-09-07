@@ -31,7 +31,7 @@ choose --timeout ${menu-timeout} --default ${menu-default} target && goto ${targ
 chain ${giturlraw}/netboot.ipxe
 
 :item2
-set conn_type https
+imgfree
 kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui quiet
 #initrd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 #initrd ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
