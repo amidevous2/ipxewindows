@@ -23,33 +23,13 @@ if exist x:\Windows\System32\pvpanic-pci.inf pnputil /i /a x:\Windows\System32\p
 if exist x:\Windows\System32\pvpanic.inf pnputil /i /a x:\Windows\System32\pvpanic.inf
 if exist x:\Windows\System32\qemupciserial.inf pnputil /i /a x:\Windows\System32\qemupciserial.inf
 if exist x:\Windows\System32\qxldod.inf pnputil /i /a x:\Windows\System32\qxldod.inf
-if exist x:\Windows\System32\viofs.inf pnputil /i /a x:\Windows\System32\vioprot.inf
+if exist x:\Windows\System32\vioprot.inf pnputil /i /a x:\Windows\System32\vioprot.inf
 if exist x:\Windows\System32\viofs.inf pnputil /i /a x:\Windows\System32\viofs.inf
 if exist x:\Windows\System32\viogpudo.inf pnputil /i /a x:\Windows\System32\viogpudo.inf
 if exist x:\Windows\System32\vioinput.inf pnputil /i /a x:\Windows\System32\vioinput.inf
 if exist x:\Windows\System32\viorng.inf pnputil /i /a x:\Windows\System32\viorng.inf
 if exist x:\Windows\System32\vioser.inf pnputil /i /a x:\Windows\System32\vioser.inf
-setlocal enableDelayedExpansion
-for /f "delims=" %%a in ('ipconfig /all') do (
-    set line=%%a
-    if not "!line:~0,1!"==" " if not "!line:adapter=!"=="!line!" (
-        set name=!line:*adapter =!
-        set name=!name::=!
-    )
-    for /f "tokens=1,2,*" %%b in ("%%a") do (
-        if "%%b %%c"=="Physical Address." (
-            set mac=%%d
-            set mac=!mac:*: =!
-            echo !name!: !mac!
-            if "!mac!"=="52-54-00-01-13-9E" (
-                netsh interface ipv4 set address name="Ethernet" static 163.172.118.206 mask=255.255.255.255 gateway=62.210.202.1 10
-            )
-            else (
-                ipconfig /renew
-            )
-        )
-    )
-)
+ipconfig /renew
 net start dnscache
 netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
 netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
