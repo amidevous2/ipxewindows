@@ -172,8 +172,8 @@ initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/aut
 initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
 initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
 initrd ${giturl}/releases/download/windows7/boot.wim.x86 boot.wim
-echo wimboot:
-imgstat wimboot
+echo wimboot.i386:
+imgstat wimboot.i386
 echo bcd:
 imgstat bcd
 echo boot.sdi:
