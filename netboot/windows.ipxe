@@ -1,9 +1,9 @@
 #!ipxe
 set menu-timeout 300000
 set submenu-timeout ${menu-timeout}
-isset ${menu-default}
-set menu-default starter
+isset ${menu-default} || set menu-default starter
 set submenu-timeout ${menu-timeout}
+
 set giturl https://github.com/amidevous2/ipxewindows
 set giturlraw https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main
 
@@ -21,7 +21,7 @@ choose --timeout ${menu-timeout} --default ${menu-default} target && goto ${targ
 chain ${giturlraw}/netboot.ipxe
 
 :starter
-chain ${giturlraw}/starter.ipxe
+chain ${giturlraw}/netboot.ipxe
 
 :premium32
 chain ${giturlraw}/premium32.ipxe
