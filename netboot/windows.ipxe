@@ -1,2 +1,2 @@
 #!ipxe
-chain https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/ipxe/menu.ipxe
+chain --autofree https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/ipxe/menu.ipxe
