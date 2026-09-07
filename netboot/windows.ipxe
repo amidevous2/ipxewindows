@@ -32,7 +32,7 @@ chain ${giturlraw}/netboot.ipxe
 
 :item2
 set conn_type https
-kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui quiet || shell
+kernel ${giturlraw}/wimboot/i386/wimboot wimboot gui quiet || shell
 initrd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 initrd ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
 initrd ${giturlraw}/win7/autounattend/x86/starter/french/legacy/install.bat install.bat
@@ -172,21 +172,21 @@ initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/aut
 initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
 initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
 initrd ${giturl}/releases/download/windows7/boot.wim.x86 boot.wim
-echo wimboot.i386:
-imgstat wimboot.i386
-echo bcd:
-imgstat bcd
-echo boot.sdi:
-imgstat boot.sdi
-echo install.bat:
-imgstat install.bat
-echo winpeshl.ini:
-imgstat winpeshl.ini
-echo winpe.jpg:
-imgstat winpe.jpg
-echo boot.wim:
-imgstat boot.wim
-sleep 200
+#echo wimboot.i386:
+#imgstat wimboot.i386
+#echo bcd:
+#imgstat bcd
+#echo boot.sdi:
+#imgstat boot.sdi
+#echo install.bat:
+#imgstat install.bat
+#echo winpeshl.ini:
+#imgstat winpeshl.ini
+#echo winpe.jpg:
+#imgstat winpe.jpg
+#echo boot.wim:
+#imgstat boot.wim
+#sleep 200
 boot || goto menu
 
 :item3
