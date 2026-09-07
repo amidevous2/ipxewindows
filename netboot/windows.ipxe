@@ -35,11 +35,11 @@ set conn_type https
 kernel ${giturlraw}/wimboot/i386/wimboot wimboot gui quiet || shell
 #initrd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 #initrd ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
-initrd --name install.bat ${giturlraw}/win7/autounattend/x86/starter/french/legacy/install.bat
-initrd ${giturlraw}/winpeshl.ini winpeshl.ini
-initrd --name winpe.jpg ${giturlraw}/win10/winpe.jpg || echo no background - ignored
-initrd --name winre.jpg ${giturlraw}/win10/winpe.jpg || echo no background - ignored
-initrd --name setup.bmp ${giturlraw}/win10/winpe.jpg || echo no background - ignored
+#initrd --name install.bat ${giturlraw}/win7/autounattend/x86/starter/french/legacy/install.bat
+#initrd ${giturlraw}/winpeshl.ini winpeshl.ini
+#initrd --name winpe.jpg ${giturlraw}/win10/winpe.jpg || echo no background - ignored
+#initrd --name winre.jpg ${giturlraw}/win10/winpe.jpg || echo no background - ignored
+#initrd --name setup.bmp ${giturlraw}/win10/winpe.jpg || echo no background - ignored
 # E1D68
 # TODO 0d4f only installing drivers in winpe, not when getting into windows.
 # 15fc on T15 not working in winpe either
@@ -166,12 +166,12 @@ initrd ${giturlraw}/win10/drv/vbox/vboxmouse.cat vboxmouse.cat
 initrd ${giturlraw}/win10/drv/vbox/vboxwddm.cat vboxwddm.cat
 goto skip_vbox-2
 :skip_vbox-2
-initrd ${giturlraw}/win7/autounattend/x86/starter/french/legacy/autounattend.xml autounattend.xml
-initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip.dll 7-zip.dll
-initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip32.dll 7-zip32.dll
-initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
-initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
-initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
+#initrd ${giturlraw}/win7/autounattend/x86/starter/french/legacy/autounattend.xml autounattend.xml
+#initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip.dll 7-zip.dll
+#initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip32.dll 7-zip32.dll
+#initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
+#initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
+#initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
 initrd --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim
 #echo wimboot.i386:
 #imgstat wimboot.i386
