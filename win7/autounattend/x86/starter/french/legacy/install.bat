@@ -29,6 +29,13 @@ if exist x:\Windows\System32\viogpudo.inf pnputil /i /a x:\Windows\System32\viog
 if exist x:\Windows\System32\vioinput.inf pnputil /i /a x:\Windows\System32\vioinput.inf
 if exist x:\Windows\System32\viorng.inf pnputil /i /a x:\Windows\System32\viorng.inf
 if exist x:\Windows\System32\vioser.inf pnputil /i /a x:\Windows\System32\vioser.inf
+if exist x:\Windows\System32\pvscsi.inf pnputil /i /a x:\Windows\System32\pvscsi.inf
+if exist x:\Windows\System32\vm3d.inf pnputil /i /a x:\Windows\System32\vm3d.inf
+if exist x:\Windows\System32\vmaudio.inf pnputil /i /a x:\Windows\System32\vmaudio.inf
+if exist x:\Windows\System32\vmci.inf pnputil /i /a x:\Windows\System32\vmci.inf
+if exist x:\Windows\System32\vmmouse.inf pnputil /i /a x:\Windows\System32\vmmouse.inf
+if exist x:\Windows\System32\vmusbmouse.inf pnputil /i /a x:\Windows\System32\vmusbmouse.inf
+if exist x:\Windows\System32\vmxnet3.inf pnputil /i /a x:\Windows\System32\vmxnet3.inf
 ipconfig /renew
 net start dnscache
 netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
@@ -85,4 +92,11 @@ if exist x:\Windows\System32\viogpudo.inf Dism /Image:C:\ /Add-Driver /Driver:X:
 if exist x:\Windows\System32\vioinput.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vioinput.inf
 if exist x:\Windows\System32\viorng.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\viorng.inf
 if exist x:\Windows\System32\vioser.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vioser.inf
+if exist x:\Windows\System32\pvscsi.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\pvscsi.inf
+if exist x:\Windows\System32\vm3d.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vm3d.inf
+if exist x:\Windows\System32\vmaudio.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmaudio.inf
+if exist x:\Windows\System32\vmci.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmci.inf
+if exist x:\Windows\System32\vmmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmmouse.inf
+if exist x:\Windows\System32\vmusbmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmusbmouse.inf
+if exist x:\Windows\System32\vmxnet3.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmxnet3.inf
 shutdown -r -t 1
