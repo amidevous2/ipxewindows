@@ -2,47 +2,33 @@
 set menu-timeout 300000
 set submenu-timeout ${menu-timeout}
 isset ${menu-default}
-set menu-default item3
+set menu-default starter
 set submenu-timeout ${menu-timeout}
 set giturl https://github.com/amidevous2/ipxewindows
 set giturlraw https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main
 
 menu
-item retrun            	                Return
-item item2      	windows 7 32 bit Legacy manual install ${pciid}
-item item3      	windows 7 64 bit Legacy manual install ${pciid}
-item item4      	windows 7 English
-item item5		windows 7 French
-item item6		netboot
-item shell              Shell iPXE
-item exit              	Exit
+item retrun                    Return
+item starter          windows 7 32 bit starter
+item premium32      	windows 7 32 bit familiale premium
+item premium64      	windows 7 64 bit familiale premium
+item shell            Shell iPXE
+item exit             Exit
 
 choose --timeout ${menu-timeout} --default ${menu-default} target && goto ${target}
 
 :retrun
 chain ${giturlraw}/netboot.ipxe
 
-:item2
-chain ${giturlraw}/netboot.ipxe
+:starter
+chain ${giturlraw}/starter.ipxe
 
-:item3
-chain ${giturlraw}/netboot.ipxe
-
-
-:item4
-set conn_type https
-chain ${giturlraw}/netboot.ipxe
+:premium32
+chain ${giturlraw}/premium32.ipxe
 
 
-:item5
-set conn_type https
-chain ${giturlraw}/netboot.ipxe
-
-:item6
-set conn_type https
-chain ${giturlraw}/netboot.ipxe
-exit
-
+:premium64
+chain ${giturlraw}/premium64.ipxe
 
 :shell
 shell
