@@ -172,7 +172,7 @@ goto skip_vbox-2
 #initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
 #initrd https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
 #initrd https://www.cygwin.com/setup-x86.exe setup-x86.exe
-initrd --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim
+imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim
 #echo wimboot.i386:
 #imgstat wimboot.i386
 #echo bcd:
