@@ -188,6 +188,7 @@ imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/down
 #echo boot.wim:
 #imgstat boot.wim
 #sleep 200
+imgstat
 boot || goto menu
 
 :item3
