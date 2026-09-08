@@ -7,7 +7,7 @@ isset ${arch} && goto skip_arch_detect ||
 cpuid --ext 29 && set arch x86_64 || set arch i386
 iseq ${buildarch} arm64 && set arch arm64 ||
 :skip_arch_detect
-chain --autofree boot.cfg ||
+chain --autofree http://${boot_domain}/boot.cfg ||
 echo Attempting to retrieve latest upstream version number...
 chain --timeout 5000 https://${boot_domain}/version.ipxe ||
 ntp 0.pool.ntp.org ||
@@ -17,7 +17,7 @@ set cls ${cls:string}
 :ignore_cls
 
 :version_check
-set latest_version 2.x
+set latest_version 4.x
 echo ${cls}
 iseq ${version} ${latest_version} && goto version_up2date ||
 echo
@@ -79,7 +79,7 @@ imgverify ${menu}.ipxe ${sigs}${menu}.ipxe.sig || goto error
 goto change_menu
 
 :change_menu
-chain ${menu}.ipxe || goto error
+chain https://${boot_domain}/${menu}.ipxe || goto error
 goto main_menu
 
 :error
