@@ -1,0 +1,1468 @@
+;*******************************************************************************
+;**                                                                           **
+;**                            INTEL CONFIDENTIAL                             **
+;**                                                                           **
+;**        Copyright 2010-2019 Intel Corporation All Rights Reserved.         **
+;**                                                                           **
+;**  The material contained or described herein and all documents related     **
+;**  to such material ("Material") are owned by Intel Corporation or its      **
+;**  suppliers or licensors. Title to the Material remains with Intel         **
+;**  Corporation or its suppliers and licensors. The Material contains trade  **
+;**  secrets and proprietary and confidential information of Intel or its     **
+;**  suppliers and licensors. The Material is protected by worldwide          **
+;**  copyright and trade secret laws and treaty provisions. No part of the    **
+;**  Material may be used, copied, reproduced, modified, published,           **
+;**  uploaded, posted, transmitted, distributed, or disclosed in any way      **
+;**  without Intel's prior express written permission.                        **
+;**                                                                           **
+;**  No license under any patent, copyright, trade secret or other            **
+;**  intellectual property right is granted to or conferred upon you by       **
+;**  disclosure or delivery of the Materials, either expressly, by            **
+;**  implication, inducement, estoppel or otherwise. Any license under such   **
+;**  intellectual property rights must be express and approved by Intel in    **
+;**  writing.                                                                 **
+;**                                                                           **
+;*******************************************************************************
+;
+;*******************************************************************************
+; INF for Intel(R) 40 Gigabit PCIe Network Adapters
+;*******************************************************************************
+;
+[Version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %Intel%
+CatalogFile = i40eb62.cat
+DriverVer   = 07/25/2019,1.7.157.3
+
+[Manufacturer]
+%Intel% = Intel, NTamd64.6.1.1,   NTamd64.6.1, NTamd64.6.2
+
+[Intel]
+
+[Intel.NTamd64.6.1.1]
+; DisplayName                 Section   DeviceID
+; -----------                 -------   --------
+%F10A6.Generic.Description% = NO_DRV,   PCI\VEN_8086&DEV_10A6
+%F37CF.Generic.Description% = F37CF,    PCI\VEN_8086&DEV_37CF
+%F37D1.Generic.Description% = F37D1,    PCI\VEN_8086&DEV_37D1
+%F37D1.Generic.Description% = F37D1,    PCI\VEN_8086&DEV_37D1&SUBSYS_402417AA
+%F37CC.Generic.Description% = NO_DRV,   PCI\VEN_8086&DEV_37CC
+%F37D1.Generic.Description% = F37D1PME, PCI\VEN_8086&DEV_37D1&SUBSYS_402017AA
+%F37D1.Generic.Description% = F37D1PME, PCI\VEN_8086&DEV_37D1&SUBSYS_402117AA
+%F37D1.Generic.Description% = F37D1PME, PCI\VEN_8086&DEV_37D1&SUBSYS_402217AA
+%F37D0.Generic.Description% = F37D0,    PCI\VEN_8086&DEV_37D0
+%F37D0.Generic.Description% = F37D0,    PCI\VEN_8086&DEV_37D3
+%F37D0.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D3&SUBSYS_402017AA
+%F37D0.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D3&SUBSYS_402117AA
+%F37CE.Generic.Description% = F37CEPME, PCI\VEN_8086&DEV_37CE&SUBSYS_402517AA
+%F37D0.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D3&SUBSYS_402517AA
+%F37D2.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D2&SUBSYS_402517AA
+%F37D2.Generic.Description% = F37D0,    PCI\VEN_8086&DEV_37D2
+%F37D2.Generic.Description% = F37D0,    PCI\VEN_8086&DEV_37D2&SUBSYS_402417AA
+%F37D2.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D2&SUBSYS_402017AA
+%F37D2.Generic.Description% = F37D0PME, PCI\VEN_8086&DEV_37D2&SUBSYS_402117AA
+
+[Intel.NTamd64.6.1]
+
+[Intel.NTamd64.6.2]
+
+[NO_DRV]
+Characteristics = 0x01
+Include         = machine.inf
+Needs           = NO_DRV
+
+[NO_DRV.Services]
+Include = machine.inf
+Needs   = NO_DRV.Services
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 10GBE
+; ------------------------------------------------------
+[F37CF]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = Powermgmt.reg
+Addreg             = 10Gb_Speed.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37CF.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37CF.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37CF.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPM.reg
+CopyFiles = CoInstallerCopyFiles
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 1GBE/10GBE
+; ------------------------------------------------------
+[F37D0]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = Powermgmt.reg
+Addreg             = 1Gb_10Gb_Speed.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37D0.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37D0.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37D0.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPM.reg
+CopyFiles = CoInstallerCopyFiles
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 1GBE/10GBE PME enabled
+; ------------------------------------------------------
+[F37D0PME]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = PowermgmtEn.reg
+Addreg             = 1Gb_10Gb_Speed.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37D0PME.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37D0PME.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37D0PME.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPM.reg
+CopyFiles = CoInstallerCopyFiles
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 for 1GbE
+; ------------------------------------------------------
+[F37D1]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+DelReg             = Virtualization.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = Powermgmt.reg
+Addreg             = Pattern_WoL.reg
+Addreg             = ARP_NS_Offload.reg
+Addreg             = 1Gb_Speed.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37D1.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37D1.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37D1.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPMNoIov.reg
+CopyFiles = CoInstallerCopyFiles
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 for 1GbE PME Enabled
+; ------------------------------------------------------
+[F37D1PME]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+DelReg             = Virtualization.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = PowermgmtEn.reg
+Addreg             = Pattern_WoL.reg
+Addreg             = ARP_NS_Offload.reg
+Addreg             = 1Gb_Speed.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37D1PME.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37D1PME.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37D1PME.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPMNoIov.reg
+CopyFiles = CoInstallerCopyFiles
+
+; ------------------------------------------------------
+; Intel(R) Ethernet Connection X722 for backplane PME Enabled
+; ------------------------------------------------------
+[F37CEPME]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg, ReceiveScalingMode.DelReg
+AddReg             = Default.reg, RSS.reg, Uninstall.reg
+Addreg             = PowermgmtEn.reg
+CopyFiles          = CopyFiles, MessageDll.CopyFiles, Uninstall.CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[F37CEPME.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[F37CEPME.HW]
+Include = machine.inf
+Needs   = PciIoSpaceNotRequired
+AddReg  = MSI.reg
+
+[F37CEPME.CoInstallers]
+AddReg    = CoInstaller_AddReg, CoInKPM.reg
+CopyFiles = CoInstallerCopyFiles
+
+;-------------------------------------------------------------------------------
+; Registry Settings
+;-------------------------------------------------------------------------------
+[Default.reg]
+HKR, Ndi\Interfaces,                            UpperRange,             0, "ndis5"
+HKR, Ndi\Interfaces,                            LowerRange,             0, "ethernet"
+HKR, Ndi,                                       Service,                0, %ServiceName%
+HKR, Ndi\Params\*FlowControl,                   ParamDesc,              0, %FlowControl%
+HKR, Ndi\Params\*FlowControl,                   default,                0, "4"
+HKR, Ndi\Params\*FlowControl\Enum,              "0",                    0, %Disabled%
+HKR, Ndi\Params\*FlowControl\Enum,              "1",                    0, %FlowControl_TxOnly%
+HKR, Ndi\Params\*FlowControl\Enum,              "2",                    0, %FlowControl_RxOnly%
+HKR, Ndi\Params\*FlowControl\Enum,              "3",                    0, %FlowControl_Full%
+HKR, Ndi\Params\*FlowControl\Enum,              "4",                    0, %AutoNegotiation%
+HKR, Ndi\Params\*FlowControl,                   type,                   0, "enum"
+
+; *TransmitBuffers
+HKR, Ndi\params\*TransmitBuffers,               ParamDesc,              0, %TransmitBuffers%
+HKR, Ndi\params\*TransmitBuffers,               default,                0, "512"
+HKR, Ndi\params\*TransmitBuffers,               min,                    0, "128"
+HKR, Ndi\params\*TransmitBuffers,               max,                    0, "4096"
+HKR, Ndi\params\*TransmitBuffers,               step,                   0, "64"
+HKR, Ndi\params\*TransmitBuffers,               Base,                   0, "10"
+HKR, Ndi\params\*TransmitBuffers,               type,                   0, "int"
+
+; *ReceiveBuffers
+HKR, Ndi\params\*ReceiveBuffers,                ParamDesc,              0, %ReceiveBuffers%
+HKR, Ndi\params\*ReceiveBuffers,                default,                0, "512"
+HKR, Ndi\params\*ReceiveBuffers,                min,                    0, "128"
+HKR, Ndi\params\*ReceiveBuffers,                max,                    0, "4096"
+HKR, Ndi\params\*ReceiveBuffers,                step,                   0, "64"
+HKR, Ndi\params\*ReceiveBuffers,                Base,                   0, "10"
+HKR, Ndi\params\*ReceiveBuffers,                type,                   0, "int"
+
+; *TCPChecksumOffloadIPv4
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        ParamDesc,              0, %TCPChksumOffv4%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        default,                0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        type,                   0, "enum"
+
+; *TCPChecksumOffloadIPv6
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        ParamDesc,              0, %TCPChksumOffv6%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        default,                0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        type,                   0, "enum"
+
+; *UDPChecksumOffloadIPv4
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        ParamDesc,              0, %UDPChksumOffv4%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        default,                0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        type,                   0, "enum"
+
+; *UDPChecksumOffloadIPv6
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        ParamDesc,              0, %UDPChksumOffv6%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        default,                0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        type,                   0, "enum"
+
+; *IPChecksumOffloadIPv4
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         ParamDesc,              0, %IPChksumOffv4%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         default,                0, "3"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "0",                    0, %Disabled%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         type,                   0, "enum"
+
+; Network Address
+HKR, Ndi\params\NetworkAddress,                 ParamDesc,              0, %LAA%
+HKR, Ndi\params\NetworkAddress,                 Default,                0, ""
+HKR, Ndi\params\NetworkAddress,                 type,                   0, "edit"
+HKR, NDI\params\NetworkAddress,                 LimitText,              0, "12"
+HKR, NDI\params\NetworkAddress,                 UpperCase,              0, "1"
+HKR, NDI\params\NetworkAddress,                 optional,               0, "1"
+
+;Log Link State Event
+HKR,Ndi\Params\LogLinkStateEvent,               ParamDesc,              0, %LogLinkState%
+HKR,Ndi\Params\LogLinkStateEvent,               Type,                   0, "enum"
+HKR,Ndi\Params\LogLinkStateEvent,               Default,                0, "51"
+HKR,Ndi\Params\LogLinkStateEvent\Enum,          "51",                   0, %Enabled%
+HKR,Ndi\Params\LogLinkStateEvent\Enum,          "16",                   0, %Disabled%
+HKR,,                                           LogLinkStateEvent,      0, "51"
+
+; Interrupt Throttle Rate
+HKR, Ndi\Params\ITR,                            ParamDesc,              0, %InterruptThrottleRate%
+HKR, Ndi\Params\ITR,                            default,                0, "65535"
+HKR, Ndi\Params\ITR\Enum,                       "65535",                0, %Adaptive%
+HKR, Ndi\Params\ITR\Enum,                       "2000",                 0, %Extreme%
+HKR, Ndi\Params\ITR\Enum,                       "950",                  0, %High%
+HKR, Ndi\Params\ITR\Enum,                       "488",                  0, %Medium%
+HKR, Ndi\Params\ITR\Enum,                       "200",                  0, %Low%
+HKR, Ndi\Params\ITR\Enum,                       "0",                    0, %Off%
+HKR, Ndi\Params\ITR,                            type,                   0, "enum"
+
+; *PriorityVLANTag
+HKR, Ndi\Params\*PriorityVLANTag,               ParamDesc,              0, %PriorityVLANTag%
+HKR, Ndi\Params\*PriorityVLANTag,               default,                0, "3"
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "0",                    0, %PriorityVlanDisabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "1",                    0, %PriorityEnabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "2",                    0, %VlanEnabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "3",                    0, %PriorityVlanEnabled%
+HKR, Ndi\Params\*PriorityVLANTag,               type,                   0, "enum"
+
+; *InterruptModeration
+HKR, Ndi\Params\*InterruptModeration,           ParamDesc,              0, %InterruptModeration%
+HKR, Ndi\Params\*InterruptModeration,           default,                0, "1"
+HKR, Ndi\Params\*InterruptModeration\Enum,      "0",                    0, %Disabled%
+HKR, Ndi\Params\*InterruptModeration\Enum,      "1",                    0, %Enabled%
+HKR, Ndi\Params\*InterruptModeration,           type,                   0, "enum"
+
+; *LsoV2IPv4
+HKR, Ndi\Params\*LsoV2IPv4,                     ParamDesc,              0, %LsoV2IPv4%
+HKR, Ndi\Params\*LsoV2IPv4,                     default,                0, "1"
+HKR, Ndi\Params\*LsoV2IPv4\Enum,                "0",                    0, %Disabled%
+HKR, Ndi\Params\*LsoV2IPv4\Enum,                "1",                    0, %Enabled%
+HKR, Ndi\Params\*LsoV2IPv4,                     type,                   0, "enum"
+
+; *LsoV2IPv6
+HKR, Ndi\Params\*LsoV2IPv6,                     ParamDesc,              0, %LsoV2IPv6%
+HKR, Ndi\Params\*LsoV2IPv6,                     default,                0, "1"
+HKR, Ndi\Params\*LsoV2IPv6\Enum,                "0",                    0, %Disabled%
+HKR, Ndi\Params\*LsoV2IPv6\Enum,                "1",                    0, %Enabled%
+HKR, Ndi\Params\*LsoV2IPv6,                     type,                   0, "enum"
+
+; *JumboPacket
+HKR, Ndi\Params\*JumboPacket,                   ParamDesc,              0, %JumboPacket%
+HKR, Ndi\Params\*JumboPacket,                   default,                0, "1514"
+HKR, Ndi\Params\*JumboPacket\Enum,              "1514",                 0, %Disabled%
+HKR, Ndi\Params\*JumboPacket\Enum,              "4088",                 0, %Bytes4088%
+HKR, Ndi\Params\*JumboPacket\Enum,              "9014",                 0, %Bytes9014%
+HKR, Ndi\Params\*JumboPacket,                   type,                   0, "enum"
+
+[Pattern_WoL.reg]
+; *WakeOnMagicPacket
+HKR, Ndi\Params\*WakeOnMagicPacket,             ParamDesc,              0, %WakeOnMagicPacket%
+HKR, Ndi\Params\*WakeOnMagicPacket,             default,                0, "1"
+HKR, Ndi\Params\*WakeOnMagicPacket\Enum,        "0",                    0, %Disabled%
+HKR, Ndi\Params\*WakeOnMagicPacket\Enum,        "1",                    0, %Enabled%
+HKR, Ndi\Params\*WakeOnMagicPacket,             type,                   0, "enum"
+
+; *WakeOnPattern
+HKR, Ndi\Params\*WakeOnPattern,                 ParamDesc,              0, %WakeOnPattern%
+HKR, Ndi\Params\*WakeOnPattern,                 default,                0, "1"
+HKR, Ndi\Params\*WakeOnPattern\Enum,            "0",                    0, %Disabled%
+HKR, Ndi\Params\*WakeOnPattern\Enum,            "1",                    0, %Enabled%
+HKR, Ndi\Params\*WakeOnPattern,                 type,                   0, "enum"
+
+[ARP_NS_Offload.reg]
+; *PMARPOffload
+HKR, Ndi\Params\*PMARPOffload,                  ParamDesc,              0, %PMARPOffload%
+HKR, Ndi\Params\*PMARPOffload,                  default,                0, "1"
+HKR, Ndi\Params\*PMARPOffload\Enum,             "0",                    0, %Disabled%
+HKR, Ndi\Params\*PMARPOffload\Enum,             "1",                    0, %Enabled%
+HKR, Ndi\Params\*PMARPOffload,                  type,                   0, "enum"
+
+; *PMNSOffload
+HKR, Ndi\Params\*PMNSOffload,                   ParamDesc,              0, %PMNSOffload%
+HKR, Ndi\Params\*PMNSOffload,                   default,                0, "1"
+HKR, Ndi\Params\*PMNSOffload\Enum,              "0",                    0, %Disabled%
+HKR, Ndi\Params\*PMNSOffload\Enum,              "1",                    0, %Enabled%
+HKR, Ndi\Params\*PMNSOffload,                   type,                   0, "enum"
+
+[1Gb_Speed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "6",                    0, %1000Mb_Full_Duplex%
+
+[10Gb_Speed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "7",                    0, %10Gb_Full_Duplex%
+
+[40Gb_Speed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "9",                    0, %40Gb_Full_Duplex%
+
+[10Gb_40Gb_Speed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "7",                    0, %10Gb_Full_Duplex%
+HKR, Ndi\params\*SpeedDuplex\enum,              "9",                    0, %40Gb_Full_Duplex%
+
+[1Gb_10Gb_Speed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "6",                    0, %1000Mb_Full_Duplex%
+HKR, Ndi\params\*SpeedDuplex\enum,              "7",                    0, %10Gb_Full_Duplex%
+
+[RSS.reg]
+; NumRssQueues
+HKR, Ndi\Params\NumRssQueues,                   ParamDesc,              0, %NumRssQueues2%
+HKR, Ndi\Params\NumRssQueues,                   default,                0, "8"
+HKR, Ndi\Params\NumRssQueues,                   type,                   0, "enum"
+HKR, Ndi\Params\NumRssQueues\Enum,              "1",                    0, %1queue%
+HKR, Ndi\Params\NumRssQueues\Enum,              "2",                    0, %2queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "4",                    0, %4queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "8",                    0, %8queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "16",                   0, %16queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "32",                   0, %32queues%
+
+; *RSS
+HKR, Ndi\Params\*RSS,                           ParamDesc,              0, %RSS%
+HKR, Ndi\Params\*RSS,                           default,                0, "1"
+HKR, Ndi\Params\*RSS,                           type,                   0, "enum"
+HKR, Ndi\Params\*RSS\Enum,                      "0",                    0, %Disabled%
+HKR, Ndi\Params\*RSS\Enum,                      "1",                    0, %Enabled%
+
+[MSI.reg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+
+[Powermgmt.reg]
+; EnablePME
+HKR,Ndi\Params\EnablePME,                 ParamDesc,                    0, %Enable_PME%
+HKR,Ndi\Params\EnablePME,                 Type,                         0, "enum"
+HKR,Ndi\Params\EnablePME,                 Default,                      0, "0"
+HKR,Ndi\Params\EnablePME\Enum,            "1",                          0, %Enabled%
+HKR,Ndi\Params\EnablePME\Enum,            "0",                          0, %Disabled%
+
+[PowermgmtEn.reg]
+; EnablePME enabled
+HKR,Ndi\Params\EnablePME,                 ParamDesc,                    0, %Enable_PME%
+HKR,Ndi\Params\EnablePME,                 Type,                         0, "enum"
+HKR,Ndi\Params\EnablePME,                 Default,                      0, "1"
+HKR,Ndi\Params\EnablePME\Enum,            "1",                          0, %Enabled%
+HKR,Ndi\Params\EnablePME\Enum,            "0",                          0, %Disabled%
+
+[Advanced.DelReg]
+HKR, Ndi\Params
+HKR, PROSetNdi\Params
+HKR, PROSetNdi\NdiExt
+
+[Virtualization.DelReg]
+HKR,, *SRIOV
+HKR, NicSwitches
+HKR,, *VMQ
+HKR,, *VMQVlanFiltering
+
+[ReceiveScalingMode.DelReg]
+HKR,,ReceiveScalingMode
+
+[AddEventLog]
+HKR,, EventMessageFile, 0x00020000, %EventLogMessageDllPath%
+HKR,, TypesSupported,   0x00010001, 7
+
+;-----------------------------------------------------------------------------
+; Uninstall parameters
+;-----------------------------------------------------------------------------
+[Uninstall.reg]
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37CF, 0, "37CF"
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37D0, 0, "37D0"
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37D1, 0, "37D1"
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37D2, 0, "37D2"
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37D3, 0, "37D3"
+HKLM,Software\Intel\Prounstl\SupportedDevices\8086, 37CC, 0, "37CC"
+HKLM,Software\Intel\Prounstl\Dins, i40eb62.din, 0, "i40eb.Uninstall"
+HKLM,Software\Intel\Prounstl\Services, %ServiceName%, 0, i40eb62.sys
+
+;-----------------------------------------------------------------------------
+; Driver "service" installation settings
+;-----------------------------------------------------------------------------
+[Service]
+DisplayName    = %Service.Displayname%
+ServiceType    = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3 ;%SERVICE_DEMAND_START%
+ErrorControl   = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\i40eb62.sys
+LoadOrderGroup = NDIS
+
+;-----------------------------------------------------------------------------
+; Event Log settings
+;-----------------------------------------------------------------------------
+[EventLog]
+AddReg = AddEventLog
+
+;-----------------------------------------------------------------------------
+; Coinstaller installation
+;-----------------------------------------------------------------------------
+[CoInstallerCopyFiles]
+NicCo4.dll,,,0x00000010 ;don't overwrite
+NicIn40B.dll
+
+[CoInstaller_AddReg]
+HKR,, CoInstallers32, 0x00010000, "NicCo4.dll,NicCoInstallerEntry"
+HKR,, NicCoPlugins, 0x00010000, "NicIn40B.dll,NicCoInstallerEntry"
+
+[CoInK.reg]
+HKR,, CoInstallFlag, 0x00010001, 0x04600040
+
+[CoInKPM.reg]
+HKR,, CoInstallFlag, 0x00010001, 0x04600048
+
+[CoInKPMNoIov.reg]
+HKR,, CoInstallFlag, 0x00010001, 0x04600048
+
+[CopyFiles]
+i40eb62.sys,,,2
+
+[MessageDll.CopyFiles]
+i40ebmsg.dll,,,2
+
+[Uninstall.CopyFiles]
+i40eb62.din,,,2
+
+;-----------------------------------------------------------------------------
+; DestinationDirs
+;-----------------------------------------------------------------------------
+[DestinationDirs]
+CopyFiles            = 12
+DefaultDestDir       = 11
+Uninstall.CopyFiles  = 11
+CoInstallerCopyFiles = 11
+MessageDll.CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+;-----------------------------------------------------------------------------
+; SourceDisksFiles
+;-----------------------------------------------------------------------------
+[SourceDisksFiles]
+i40eb62.sys  = 1
+i40eb62.din  = 1
+i40ebmsg.dll = 1
+NicCo4.dll   = 1
+NicIn40B.dll = 1
+
+[Strings]
+InterruptModeration       = "Interrupt Moderation"
+InterruptThrottleRate     = "Interrupt Moderation Rate"
+Adaptive                  = "Adaptive"
+Extreme                   = "Extreme"
+High                      = "High"
+Medium                    = "Medium"
+Low                       = "Low"
+IPChksumOffv4             = "IPv4 Checksum Offload"
+TCPChksumOffv4            = "TCP Checksum Offload (IPv4)"
+UDPChksumOffv4            = "UDP Checksum Offload (IPv4)"
+LsoV2IPv4                 = "Large Send Offload V2 (IPv4)"
+TCPChksumOffv6            = "TCP Checksum Offload (IPv6)"
+UDPChksumOffv6            = "UDP Checksum Offload (IPv6)"
+LsoV2IPv6                 = "Large Send Offload V2 (IPv6)"
+ChksumOffTxRx             = "Rx & Tx Enabled"
+ChksumOffTx               = "Tx Enabled"
+ChksumOffRx               = "Rx Enabled"
+TransmitBuffers           = "Transmit Buffers"
+ReceiveBuffers            = "Receive Buffers"
+RSS                       = "Receive Side Scaling"
+NumRssQueues2             = "Maximum Number of RSS Queues"
+1queue                    = "1 Queue"
+2queues                   = "2 Queues"
+4queues                   = "4 Queues"
+8queues                   = "8 Queues"
+16queues                  = "16 Queues"
+32queues                  = "32 Queues"
+FlowControl               = "Flow Control"
+FlowControl_RxOnly        = "Rx Enabled"
+FlowControl_TxOnly        = "Tx Enabled"
+FlowControl_Full          = "Rx & Tx Enabled"
+PriorityVLANTag           = "Priority & VLAN"
+PriorityVlanDisabled      = "Priority & VLAN Disabled"
+PriorityEnabled           = "Priority Enabled"
+PriorityVlanEnabled       = "Priority & VLAN Enabled"
+VlanEnabled               = "VLAN Enabled"
+SpeedDuplex               = "Speed & Duplex"
+AutoNegotiation           = "Auto Negotiation"
+1000Mb_Full_Duplex        = "1.0 Gbps Full Duplex"
+10Gb_Full_Duplex          = "10 Gbps Full Duplex"
+40Gb_Full_Duplex          = "40 Gbps Full Duplex"
+Off                       = "Off"
+Enabled                   = "Enabled"
+Disabled                  = "Disabled"
+Bytes4088                 = "4088 Bytes"
+Bytes9014                 = "9014 Bytes"
+LAA                       = "Locally Administered Address"
+JumboPacket               = "Jumbo Packet"
+LogLinkState              = "Log Link State Event"
+Enable_PME                = "Enable PME"
+WakeOnMagicPacket         = "Wake on Magic Packet"
+WakeOnPattern             = "Wake on Pattern Match"
+PMARPOffload              = "ARP Offload"
+PMNSOffload               = "NS Offload"
+ServiceName               = "i40eb"
+Intel                     = "Intel"
+EventLogMessageDllPath    = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\i40eb62.sys"
+DiskName                  = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname       = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0804] ; Chinese (Simplified)
+InterruptModeration                = "÷–∂œ≤√æˆ"
+InterruptThrottleRate              = "÷–∂œ≤√æˆ¬ "
+Adaptive                           = "  ”¶–‘"
+Extreme                            = "º´÷µ"
+High                               = "∏ﬂ"
+Medium                             = "÷–"
+Low                                = "µÕ"
+IPChksumOffv4                      = "IPv4 –£—È∫Õ∑÷‘ÿ¥´ ‰"
+TCPChksumOffv4                     = "TCP –£—È∫Õ∑÷‘ÿ¥´ ‰ (IPv4)"
+UDPChksumOffv4                     = "UDP –£—È∫Õ∑÷‘ÿ¥´ ‰ (IPv4)"
+LsoV2IPv4                          = "¥Û–Õ∑¢ÀÕ∑÷‘ÿ V2 (IPv4)"
+TCPChksumOffv6                     = "TCP –£—È∫Õ∑÷‘ÿ¥´ ‰ (IPv6)"
+UDPChksumOffv6                     = "UDP –£—È∫Õ∑÷‘ÿ¥´ ‰ (IPv6)"
+LsoV2IPv6                          = "¥Û–Õ∑¢ÀÕ∑÷‘ÿ V2 (IPv6)"
+ChksumOffTxRx                      = "“—∆Ù”√ Rx ∫Õ Tx"
+ChksumOffTx                        = "“—∆Ù”√ Tx"
+ChksumOffRx                        = "“—∆Ù”√ Rx"
+TransmitBuffers                    = "¥´ ‰ª∫≥Â«¯"
+ReceiveBuffers                     = "Ω” ’ª∫≥Â«¯"
+RSS                                = "Ω” ’∑Ωµ˜’˚"
+NumRssQueues2                      = "RSS ∂”¡–µƒ◊Ó¥Û ˝ƒø"
+1queue                             = "1 ∏ˆ∂”¡–"
+2queues                            = "2 ∏ˆ∂”¡–"
+4queues                            = "4 ∏ˆ∂”¡–"
+8queues                            = "8 ∏ˆ∂”¡–"
+16queues                           = "16 ∏ˆ∂”¡–"
+32queues                           = "32 ∏ˆ∂”¡–"
+FlowControl                        = "¡˜¡øøÿ÷∆"
+FlowControl_RxOnly                 = "“—∆Ù”√ Rx"
+FlowControl_TxOnly                 = "“—∆Ù”√ Tx"
+FlowControl_Full                   = "“—∆Ù”√ Rx ∫Õ Tx"
+PriorityVLANTag                    = "”≈œ»º∂∫Õ VLAN"
+PriorityVlanDisabled               = "“—Ω˚”√”≈œ»º∂∫Õ VLAN"
+PriorityEnabled                    = "“—∆Ù”√”≈œ»º∂"
+PriorityVlanEnabled                = "“—∆Ù”√”≈œ»º∂∫Õ VLAN"
+VlanEnabled                        = "“—∆Ù”√ VLAN"
+SpeedDuplex                        = "ÀŸ∂»∫ÕÀ´π§"
+AutoNegotiation                    = "◊‘∂Ø–≠…Ã"
+1000Mb_Full_Duplex                 = "1.0 Gbps »´À´π§"
+10Gb_Full_Duplex                   = "10 Gbps »´À´π§"
+40Gb_Full_Duplex                   = "40 Gbps »´À´π§"
+Off                                = "πÿ±’"
+Enabled                            = "∆Ù”√"
+Disabled                           = "Ω˚”√"
+Bytes4088                          = "4088 ◊÷Ω⁄"
+Bytes9014                          = "9014 ◊÷Ω⁄"
+LAA                                = "±æµÿπ‹¿Ìµÿ÷∑"
+JumboPacket                        = "æﬁ÷° ˝æ›∞¸"
+LogLinkState                       = "º«¬º¡¥Ω”◊¥Ã¨ ¬º˛"
+Enable_PME                         = "∆Ù”√ PME"
+WakeOnMagicPacket                  = "ªΩ–—ƒß∞¸"
+WakeOnPattern                      = "ªΩ–—ƒ£ Ω∆•≈‰"
+PMARPOffload                       = "ARP ∑÷‘ÿ"
+PMNSOffload                        = "NS ∑÷‘ÿ"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0404] ; Chinese (Traditional)
+InterruptModeration                = "ß√¬_Ω’∏`"
+InterruptThrottleRate              = "ß√¬_∏`¨yª÷≥t≤v"
+Adaptive                           = "Ω’æ„© "
+Extreme                            = "∑•∞™"
+High                               = "∞™"
+Medium                             = "§§"
+Low                                = "ßC"
+IPChksumOffv4                      = "IPv4 ¿À¨d≠»®¯∏¸"
+TCPChksumOffv4                     = "TCP ¿À¨d≠»®¯∏¸ (IPv4)"
+UDPChksumOffv4                     = "UDP ¿À¨d≠»®¯∏¸ (IPv4)"
+LsoV2IPv4                          = "§j∂q∂«∞e®¯∏¸ V2 (IPv4)"
+TCPChksumOffv6                     = "TCP ¿À¨d≠»®¯∏¸ (IPv6)"
+UDPChksumOffv6                     = "UDP ¿À¨d≠»®¯∏¸ (IPv6)"
+LsoV2IPv6                          = "§j∂q∂«∞e®¯∏¸ V2 (IPv6)"
+ChksumOffTxRx                      = "Rx ªP Tx §w±“•Œ"
+ChksumOffTx                        = "Tx §w±“•Œ"
+ChksumOffRx                        = "Rx §w±“•Œ"
+TransmitBuffers                    = "∂«øÈΩwΩƒ∞œ"
+ReceiveBuffers                     = "±µ¶¨ΩwΩƒ∞œ"
+RSS                                = "±µ¶¨∫›Ω’æ„"
+NumRssQueues2                      = "±µ¶¨∫›Ω’æ„¶Ó¶C™∫≥Ã§jº∆•ÿ"
+1queue                             = "1 ≠”¶Ó¶C"
+2queues                            = "2 ≠”¶Ó¶C"
+4queues                            = "4 ≠”¶Ó¶C"
+8queues                            = "8 ≠”¶Ó¶C"
+16queues                           = "16 ≠”¶Ó¶C"
+32queues                           = "32 ≠”¶Ó¶C"
+FlowControl                        = "¨y∂q±±®Ó"
+FlowControl_RxOnly                 = "Rx §w±“•Œ"
+FlowControl_TxOnly                 = "Tx §w±“•Œ"
+FlowControl_Full                   = "Rx ªP Tx §w±“•Œ"
+PriorityVLANTag                    = "¿u•˝∂∂ß«ªP VLAN"
+PriorityVlanDisabled               = "¿u•˝∂∂ß«ªP VLAN §w∞±•Œ"
+PriorityEnabled                    = "¿u•˝∂∂ß«§w±“•Œ"
+PriorityVlanEnabled                = "¿u•˝∂∂ß«ªP VLAN §w±“•Œ"
+VlanEnabled                        = "VLAN §w±“•Œ"
+SpeedDuplex                        = "≥t´◊ªP¬˘§u"
+AutoNegotiation                    = "¶€∞ •ÊØA"
+1000Mb_Full_Duplex                 = "1.0 Gbps •˛¬˘§u"
+10Gb_Full_Duplex                   = "10 Gbps •˛¬˘§u"
+40Gb_Full_Duplex                   = "40 Gbps •˛¬˘§u"
+Off                                = "√ˆ≥¨"
+Enabled                            = "±“•Œ"
+Disabled                           = "∞±•Œ"
+Bytes4088                          = "4088 ¶Ï§∏≤’"
+Bytes9014                          = "9014 ¶Ï§∏≤’"
+LAA                                = "•ª¶a∫ﬁ≤z¶Ïß}"
+JumboPacket                        = "∂W§j´¨´ •]"
+LogLinkState                       = "µnø˝≥sµ≤™¨∫A®∆•Û"
+Enable_PME                         = "±“•Œ PME"
+WakeOnMagicPacket                  = "≥ÍøÙØ´©_´ •]"
+WakeOnPattern                      = "ºÀ¶°§ÒπÔ≥ÍøÙ"
+PMARPOffload                       = "ARP ®¯∏¸"
+PMNSOffload                        = "NS ®¯∏¸"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0407] ; German (Germany)
+InterruptModeration                = "Interrupt-Drosselung"
+InterruptThrottleRate              = "Interrupt-Drosselungsrate"
+Adaptive                           = "Adaptiv"
+Extreme                            = "Extrem"
+High                               = "Hoch"
+Medium                             = "Mittel"
+Low                                = "Niedrig"
+IPChksumOffv4                      = "IPv4-Pr¸fsummen abladen"
+TCPChksumOffv4                     = "TCP-Pr¸fsummen abladen (IPv4)"
+UDPChksumOffv4                     = "UDP-Pr¸fsummen abladen (IPv4)"
+LsoV2IPv4                          = "Large-Send-Offload V2 (IPv4)"
+TCPChksumOffv6                     = "TCP-Pr¸fsummen abladen (IPv6)"
+UDPChksumOffv6                     = "UDP-Pr¸fsummen abladen (IPv6)"
+LsoV2IPv6                          = "Large-Send-Offload V2 (IPv6)"
+ChksumOffTxRx                      = "Rx und Tx aktiviert"
+ChksumOffTx                        = "Tx aktiviert"
+ChksumOffRx                        = "Rx aktiviert"
+TransmitBuffers                    = "‹bertragungspuffer"
+ReceiveBuffers                     = "Empfangspuffer"
+RSS                                = "RSS (Empfangsseitige Skalierung)"
+NumRssQueues2                      = "Max. Anzahl RSS-Warteschlangen"
+1queue                             = "1 Warteschlange"
+2queues                            = "2 Warteschlangen"
+4queues                            = "4 Warteschlangen"
+8queues                            = "8 Warteschlangen"
+16queues                           = "16 Warteschlangen"
+32queues                           = "32 Warteschlangen"
+FlowControl                        = "Flusssteuerung"
+FlowControl_RxOnly                 = "Rx aktiviert"
+FlowControl_TxOnly                 = "Tx aktiviert"
+FlowControl_Full                   = "Rx und Tx aktiviert"
+PriorityVLANTag                    = "Priorit‰t und VLAN"
+PriorityVlanDisabled               = "Priorit‰t und VLAN deaktiviert"
+PriorityEnabled                    = "Priorit‰t aktiviert"
+PriorityVlanEnabled                = "Priorit‰t und VLAN aktiviert"
+VlanEnabled                        = "VLAN aktiviert"
+SpeedDuplex                        = "Geschwindigkeit & Duplex"
+AutoNegotiation                    = "Automatische Aushandlung"
+1000Mb_Full_Duplex                 = "1,0 Gbit/s Vollduplex"
+10Gb_Full_Duplex                   = "10 Gbit/s Vollduplex"
+40Gb_Full_Duplex                   = "40 Gbit/s, Vollduplex"
+Off                                = "Aus"
+Enabled                            = "Aktiviert"
+Disabled                           = "Deaktiviert"
+Bytes4088                          = "4088 Byte"
+Bytes9014                          = "9014 Byte"
+LAA                                = "Lokal verwaltete Adresse"
+JumboPacket                        = "Jumbo Packet"
+LogLinkState                       = "Verbindungsereignis protokollieren"
+Enable_PME                         = "PME aktivieren"
+WakeOnMagicPacket                  = "Akt. ¸ber Magic Packet"
+WakeOnPattern                      = "Akt. bei Muster¸bereinstimmung"
+PMARPOffload                       = "ARP-Abladung"
+PMNSOffload                        = "NS-Abladung"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0C0A] ; Spanish (Spain)
+InterruptModeration                = "ModeraciÛn de interrupciones"
+InterruptThrottleRate              = "Velocidad de obstrucciÛn de la interrupciÛn"
+Adaptive                           = "AdaptaciÛn"
+Extreme                            = "Extremo"
+High                               = "Alto"
+Medium                             = "Medio"
+Low                                = "Bajo"
+IPChksumOffv4                      = "Descarga de suma de comprobaciÛn de IPv4"
+TCPChksumOffv4                     = "Descarga de suma de comprobaciÛn TCP (IPv4)"
+UDPChksumOffv4                     = "Descarga de suma de comprobaciÛn UDP (IPv4)"
+LsoV2IPv4                          = "Descarga grande de envÌo V2 (IPv4)"
+TCPChksumOffv6                     = "Descarga de suma de comprobaciÛn TCP (IPv6)"
+UDPChksumOffv6                     = "Descarga de suma de comprobaciÛn UDP (IPv6)"
+LsoV2IPv6                          = "Descarga grande de envÌo V2 (IPv6)"
+ChksumOffTxRx                      = "RecepciÛn y transmisiÛn habilitadas"
+ChksumOffTx                        = "TransmisiÛn habilitada"
+ChksumOffRx                        = "RecepciÛn habilitada"
+TransmitBuffers                    = "B˙feres de transmisiÛn"
+ReceiveBuffers                     = "B˙feres de recepciÛn"
+RSS                                = "Receive Side Scaling"
+NumRssQueues2                      = "N˙mero m·ximo de colas de RSS"
+1queue                             = "1 cola"
+2queues                            = "2 colas"
+4queues                            = "4 colas"
+8queues                            = "8 colas"
+16queues                           = "16 colas"
+32queues                           = "32 colas"
+FlowControl                        = "Control de flujo"
+FlowControl_RxOnly                 = "RecepciÛn habilitada"
+FlowControl_TxOnly                 = "TransmisiÛn habilitada"
+FlowControl_Full                   = "RecepciÛn y transmisiÛn habilitadas"
+PriorityVLANTag                    = "Prioridad y VLAN"
+PriorityVlanDisabled               = "Prioridad y VLAN deshabilitadas"
+PriorityEnabled                    = "Prioridad habilitada"
+PriorityVlanEnabled                = "Prioridad y VLAN habilitadas"
+VlanEnabled                        = "VLAN habilitada"
+SpeedDuplex                        = "Velocidad y d˙plex"
+AutoNegotiation                    = "NegociaciÛn autom·tica"
+1000Mb_Full_Duplex                 = "D˙plex completo a 1,0 Gbps"
+10Gb_Full_Duplex                   = "D˙plex completo a 10 Gbps"
+40Gb_Full_Duplex                   = "D˙plex completo a 40 Gbps"
+Off                                = "Desactivado"
+Enabled                            = "Habilitado"
+Disabled                           = "Deshabilitado"
+Bytes4088                          = "4088 bytes"
+Bytes9014                          = "9014 bytes"
+LAA                                = "DirecciÛn administrada localmente"
+JumboPacket                        = "Paquete jumbo"
+LogLinkState                       = "Registrar sucesos del estado del enlace"
+Enable_PME                         = "Activar PME"
+WakeOnMagicPacket                  = "Activar en Magic Packet"
+WakeOnPattern                      = "Activar al coincidir el patrÛn"
+PMARPOffload                       = "Descarga de ARP"
+PMNSOffload                        = "Descarga de NS"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.040C] ; French (France)
+InterruptModeration                = "Gestion des interruptions"
+InterruptThrottleRate              = "Taux de gestion des interruptions"
+Adaptive                           = "Variable"
+Extreme                            = "ExtrÍme"
+High                               = "Haut"
+Medium                             = "Moyen"
+Low                                = "Faible"
+IPChksumOffv4                      = "DÈlester somme de contrÙle IPv4"
+TCPChksumOffv4                     = "DÈlester somme de contrÙle TCP (IPv4)"
+UDPChksumOffv4                     = "DÈlester somme de contrÙle UDP (IPv4)"
+LsoV2IPv4                          = "DÈlester envoi important v2 (IPv4)"
+TCPChksumOffv6                     = "DÈlester somme de contrÙle TCP (IPv6)"
+UDPChksumOffv6                     = "DÈlester somme de contrÙle UDP (IPv6)"
+LsoV2IPv6                          = "DÈlester envoi important v2 (IPv6)"
+ChksumOffTxRx                      = "Rx et Tx activÈes"
+ChksumOffTx                        = "Tx activÈe"
+ChksumOffRx                        = "Rx activÈe"
+TransmitBuffers                    = "Tampons d'Èmission"
+ReceiveBuffers                     = "Tampons de rÈception"
+RSS                                = "Receive Side Scaling"
+NumRssQueues2                      = "Nombre maximum de files d'attente RSS"
+1queue                             = "1 file d'attente"
+2queues                            = "2 files d'attente"
+4queues                            = "4 files d'attente"
+8queues                            = "8 files d'attente"
+16queues                           = "16 files d'attente"
+32queues                           = "32 files d'attente"
+FlowControl                        = "ContrÙle de flux"
+FlowControl_RxOnly                 = "Rx activÈe"
+FlowControl_TxOnly                 = "Tx activÈe"
+FlowControl_Full                   = "Rx et Tx activÈes"
+PriorityVLANTag                    = "PrioritÈ et VLAN"
+PriorityVlanDisabled               = "PrioritÈ et VLAN dÈsactivÈs"
+PriorityEnabled                    = "PrioritÈ activÈe"
+PriorityVlanEnabled                = "PrioritÈ et VLAN activÈs"
+VlanEnabled                        = "VLAN activÈ"
+SpeedDuplex                        = "Vitesse et duplex"
+AutoNegotiation                    = "NÈgociation automatique"
+1000Mb_Full_Duplex                 = "1,0 Gbit/s Duplex intÈgral"
+10Gb_Full_Duplex                   = "10 Gbit/s Duplex intÈgral"
+40Gb_Full_Duplex                   = "40 Gbit/s Duplex intÈgral"
+Off                                = "DÈsactivÈ(e)"
+Enabled                            = "ActivÈ(e)"
+Disabled                           = "DÈsactivÈ(e)"
+Bytes4088                          = "4088 octets"
+Bytes9014                          = "9014 octets"
+LAA                                = "Adresse administrÈe localement"
+JumboPacket                        = "Paquets Ètendus"
+LogLinkState                       = "Consigner les ÈvÈnements díÈtat de liaison"
+Enable_PME                         = "Activer PME"
+WakeOnMagicPacket                  = "Wake on Magic Packet"
+WakeOnPattern                      = "Wake on Pattern Match"
+PMARPOffload                       = "DÈlestage ARP"
+PMNSOffload                        = "DÈlestage NS"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0410] ; Italian (Italy)
+InterruptModeration                = "Interrompi moderazione"
+InterruptThrottleRate              = "Velocit‡ di rallentamento dell'interrupt"
+Adaptive                           = "Adattivo"
+Extreme                            = "Estremo"
+High                               = "Alto"
+Medium                             = "Medio"
+Low                                = "Basso"
+IPChksumOffv4                      = "Offload di checksum IPv4"
+TCPChksumOffv4                     = "Offload di checksum TCP (IPv4)"
+UDPChksumOffv4                     = "Offload di checksum UDP (IPv4)"
+LsoV2IPv4                          = "Large Send Offload V2 (IPv4)"
+TCPChksumOffv6                     = "Offload di checksum TCP (IPv6)"
+UDPChksumOffv6                     = "Offload di checksum UDP (IPv6)"
+LsoV2IPv6                          = "Large Send Offload V2 (IPv6)"
+ChksumOffTxRx                      = "Rx e Tx abilitate"
+ChksumOffTx                        = "Tx abilitata"
+ChksumOffRx                        = "Rx abilitata"
+TransmitBuffers                    = "Trasmetti buffer"
+ReceiveBuffers                     = "Ricevi buffer"
+RSS                                = "Receive Side Scaling"
+NumRssQueues2                      = "Numero massimo di code RSS"
+1queue                             = "1 coda"
+2queues                            = "2 code"
+4queues                            = "4 code"
+8queues                            = "8 code"
+16queues                           = "16 code"
+32queues                           = "32 code"
+FlowControl                        = "Controllo del flusso"
+FlowControl_RxOnly                 = "Rx abilitata"
+FlowControl_TxOnly                 = "Tx abilitata"
+FlowControl_Full                   = "Rx e Tx abilitate"
+PriorityVLANTag                    = "Priorit‡ e VLAN"
+PriorityVlanDisabled               = "Priorit‡ e VLAN disabilitate"
+PriorityEnabled                    = "Priorit‡ abilitata"
+PriorityVlanEnabled                = "Priorit‡ e VLAN abilitate"
+VlanEnabled                        = "VLAN abilitata"
+SpeedDuplex                        = "Velocit‡ e duplex"
+AutoNegotiation                    = "Negoziazione automatica"
+1000Mb_Full_Duplex                 = "1 Gbps Full Duplex"
+10Gb_Full_Duplex                   = "10 Gbps Full Duplex"
+40Gb_Full_Duplex                   = "40 Gbps Full Duplex"
+Off                                = "Disattivato"
+Enabled                            = "Attivato"
+Disabled                           = "Disattivato"
+Bytes4088                          = "4088 byte"
+Bytes9014                          = "9014 byte"
+LAA                                = "Indirizzo amministrato localmente"
+JumboPacket                        = "Pacchetti Jumbo"
+LogLinkState                       = "Registra evento stato del collegamento"
+Enable_PME                         = "Abilita PME"
+WakeOnMagicPacket                  = "Attiva su pacchetto Magic"
+WakeOnPattern                      = "Attiva su Pattern Match"
+PMARPOffload                       = "Offload ARP"
+PMNSOffload                        = "Offload NS"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0411] ; Japanese (Japan)
+InterruptModeration                = "äÑÇËçûÇ›â¡å∏"
+InterruptThrottleRate              = "äÑÇËçûÇ›â¡å∏ó¶"
+Adaptive                           = "ÉAÉ_ÉvÉeÉBÉu"
+Extreme                            = "ç≈ëÂ"
+High                               = "çÇ"
+Medium                             = "íÜ"
+Low                                = "í·"
+IPChksumOffv4                      = "IPv4 É`ÉFÉbÉNÉTÉÄÇÃÉIÉtÉçÅ[Éh"
+TCPChksumOffv4                     = "TCP É`ÉFÉbÉNÉTÉÄÇÃÉIÉtÉçÅ[Éh (IPv4)"
+UDPChksumOffv4                     = "UDP É`ÉFÉbÉNÉTÉÄÇÃÉIÉtÉçÅ[Éh (IPv4)"
+LsoV2IPv4                          = "ëÂó ëóêMÉIÉtÉçÅ[Éh V2 (IPv4)"
+TCPChksumOffv6                     = "TCP É`ÉFÉbÉNÉTÉÄÇÃÉIÉtÉçÅ[Éh (IPv6)"
+UDPChksumOffv6                     = "UDP É`ÉFÉbÉNÉTÉÄÇÃÉIÉtÉçÅ[Éh (IPv6)"
+LsoV2IPv6                          = "ëÂó ëóêMÉIÉtÉçÅ[Éh V2 (IPv6)"
+ChksumOffTxRx                      = "éÛêM/ëóêM óLå¯"
+ChksumOffTx                        = "ëóêM óLå¯"
+ChksumOffRx                        = "éÛêM óLå¯"
+TransmitBuffers                    = "ëóêMÉoÉbÉtÉ@"
+ReceiveBuffers                     = "éÛêMÉoÉbÉtÉ@"
+RSS                                = "éÛêMë§ÉXÉPÅ[ÉäÉìÉO"
+NumRssQueues2                      = "RSS ÉLÉÖÅ[ÇÃç≈ëÂêî"
+1queue                             = "1 ÉLÉÖÅ["
+2queues                            = "2 ÉLÉÖÅ["
+4queues                            = "4 ÉLÉÖÅ["
+8queues                            = "8 ÉLÉÖÅ["
+16queues                           = "16 ÉLÉÖÅ["
+32queues                           = "32 ÉLÉÖÅ["
+FlowControl                        = "ÉtÉçÅ[êßå‰"
+FlowControl_RxOnly                 = "éÛêM óLå¯"
+FlowControl_TxOnly                 = "ëóêM óLå¯"
+FlowControl_Full                   = "éÛêM/ëóêM óLå¯"
+PriorityVLANTag                    = "óDêÊ/VLAN"
+PriorityVlanDisabled               = "óDêÊ/VLAN ñ≥å¯"
+PriorityEnabled                    = "óDêÊ óLå¯"
+PriorityVlanEnabled                = "óDêÊ/VLAN óLå¯"
+VlanEnabled                        = "VLAN óLå¯"
+SpeedDuplex                        = "ë¨ìxÇ∆ÉfÉÖÉvÉåÉbÉNÉX"
+AutoNegotiation                    = "ÉIÅ[ÉgÉlÉSÉVÉGÅ[ÉVÉáÉì"
+1000Mb_Full_Duplex                 = "1.0 Gbps ëSìÒèdí êM"
+10Gb_Full_Duplex                   = "10 Gbps ëSìÒèdí êM"
+40Gb_Full_Duplex                   = "40 Gbps ëSìÒèd"
+Off                                = "ÉIÉt"
+Enabled                            = "óLå¯"
+Disabled                           = "ñ≥å¯"
+Bytes4088                          = "4088 ÉoÉCÉg"
+Bytes9014                          = "9014 ÉoÉCÉg"
+LAA                                = "ÉçÅ[ÉJÉãä«óùÇ≥ÇÍÇÈÉAÉhÉåÉX"
+JumboPacket                        = "ÉWÉÉÉìÉ{ÉpÉPÉbÉg"
+LogLinkState                       = "ÉäÉìÉNÅEÉXÉeÅ[ÉgÅEÉCÉxÉìÉgÇÃÉçÉO"
+Enable_PME                         = "PME ÇÉIÉìÇ…Ç∑ÇÈ"
+WakeOnMagicPacket                  = "Wake on Magic Packet"
+WakeOnPattern                      = "Wake on Pattern Match"
+PMARPOffload                       = "ÉAÉhÉåÉXâåàÉvÉçÉgÉRÉã (ARP) ÉIÉtÉçÅ[Éh"
+PMNSOffload                        = "ãﬂó◊óvêø (NS) ÉIÉtÉçÅ[Éh"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0412] ; Korean (Korea)
+InterruptModeration                = "¿Œ≈Õ∑¥∆Æ ¡∂¿˝"
+InterruptThrottleRate              = "¿Œ≈Õ∑¥∆Æ ¡∂¿˝ º”µµ"
+Adaptive                           = "¿˚¿¿"
+Extreme                            = "√÷¥Î"
+High                               = "≥Ù¿Ω"
+Medium                             = "¡ﬂ∞£"
+Low                                = "≥∑¿Ω"
+IPChksumOffv4                      = "IPv4 √º≈©º∂ ø¿«¡∑ŒµÂ"
+TCPChksumOffv4                     = "TCP √º≈©º∂ ø¿«¡∑ŒµÂ(IPv4)"
+UDPChksumOffv4                     = "UDP √º≈©º∂ ø¿«¡∑ŒµÂ(IPv4)"
+LsoV2IPv4                          = "¥Î«¸ ¿¸º€ ø¿«¡∑ŒµÂ V2(IPv4)"
+TCPChksumOffv6                     = "TCP √º≈©º∂ ø¿«¡∑ŒµÂ(IPv6)"
+UDPChksumOffv6                     = "UDP √º≈©º∂ ø¿«¡∑ŒµÂ(IPv6)"
+LsoV2IPv6                          = "¥Î«¸ ¿¸º€ ø¿«¡∑ŒµÂ V2(IPv6)"
+ChksumOffTxRx                      = "Rx & Tx »∞º∫»≠µ "
+ChksumOffTx                        = "Tx »∞º∫»≠µ "
+ChksumOffRx                        = "Rx »∞º∫»≠µ "
+TransmitBuffers                    = "¿¸º€ πˆ∆€"
+ReceiveBuffers                     = "ºˆΩ≈ πˆ∆€"
+RSS                                = "ºˆΩ≈√¯ πË¿≤"
+NumRssQueues2                      = "√÷¥Î RSS ¥Î±‚ø≠ ºˆ"
+1queue                             = "1∞≥¿« ¥Î±‚ø≠"
+2queues                            = "2∞≥¿« ¥Î±‚ø≠"
+4queues                            = "4∞≥¿« ¥Î±‚ø≠"
+8queues                            = "8∞≥¿« ¥Î±‚ø≠"
+16queues                           = "16∞≥¿« ¥Î±‚ø≠"
+32queues                           = "32∞≥¿« ¥Î±‚ø≠"
+FlowControl                        = "»Â∏ß ¡¶æÓ"
+FlowControl_RxOnly                 = "Rx »∞º∫»≠µ "
+FlowControl_TxOnly                 = "Tx »∞º∫»≠µ "
+FlowControl_Full                   = "Rx & Tx »∞º∫»≠µ "
+PriorityVLANTag                    = "øÏº±º¯¿ß π◊ VLAN"
+PriorityVlanDisabled               = "øÏº±º¯¿ß π◊ VLAN ∫Ò»∞º∫»≠µ "
+PriorityEnabled                    = "øÏº±º¯¿ß »∞º∫»≠µ "
+PriorityVlanEnabled                = "øÏº±º¯¿ß π◊ VLAN »∞º∫»≠µ "
+VlanEnabled                        = "VLAN »∞º∫»≠µ "
+SpeedDuplex                        = "º”µµ π◊ ¿Ã¡ﬂ"
+AutoNegotiation                    = "¿⁄µø «˘ªÛ"
+1000Mb_Full_Duplex                 = "1.0 Gbps ¿¸¿Ã¡ﬂ"
+10Gb_Full_Duplex                   = "10 Gbps ¿¸¿Ã¡ﬂ"
+40Gb_Full_Duplex                   = "40 Gbps ¿¸¿Ã¡ﬂ"
+Off                                = "ø¿«¡"
+Enabled                            = "»∞º∫»≠µ "
+Disabled                           = "∫Ò»∞º∫»≠µ "
+Bytes4088                          = "4088πŸ¿Ã∆Æ"
+Bytes9014                          = "9014πŸ¿Ã∆Æ"
+LAA                                = "∑Œƒ√ ∞¸∏Æ ¡÷º“"
+JumboPacket                        = "¡°∫∏ ∆–≈∂"
+LogLinkState                       = "∏µ≈© ªÛ≈¬ ¿Ã∫•∆Æ ±‚∑œ"
+Enable_PME                         = "PME »∞º∫»≠"
+WakeOnMagicPacket                  = "Wake on Magic Packet"
+WakeOnPattern                      = "Wake on Pattern Match"
+PMARPOffload                       = "ARP ø¿«¡∑ŒµÂ"
+PMNSOffload                        = "NS ø¿«¡∑ŒµÂ"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0416] ; Portuguese (Brazil)
+InterruptModeration                = "ModeraÁ„o de interrupÁıes"
+InterruptThrottleRate              = "Taxa de moderaÁ„o de interrupÁıes"
+Adaptive                           = "Adaptativa"
+Extreme                            = "Extremo"
+High                               = "Alto"
+Medium                             = "MÈdio"
+Low                                = "Baixo"
+IPChksumOffv4                      = "Descarga de Checksum IPv4"
+TCPChksumOffv4                     = "Descarga de Checksum de TCP (IPv4)"
+UDPChksumOffv4                     = "Descarga de Checksum UDP (IPv4)"
+LsoV2IPv4                          = "Descarga de envio grande V2 (IPv4)"
+TCPChksumOffv6                     = "Descarga de Checksum de TCP (IPv6)"
+UDPChksumOffv6                     = "Descarga de Checksum UDP (IPv6)"
+LsoV2IPv6                          = "Descarga de envio grande V2 (IPv6)"
+ChksumOffTxRx                      = "Rx e Tx habilitadas"
+ChksumOffTx                        = "Tx habilitada"
+ChksumOffRx                        = "Rx habilitada"
+TransmitBuffers                    = "Buffers de transmiss„o"
+ReceiveBuffers                     = "Buffers de recepÁ„o"
+RSS                                = "Escala de recepÁ„o"
+NumRssQueues2                      = "N∫ m·x. de filas de RSS"
+1queue                             = "1 fila"
+2queues                            = "2 filas"
+4queues                            = "4 filas"
+8queues                            = "8 Filas"
+16queues                           = "16 Filas"
+32queues                           = "32 Filas"
+FlowControl                        = "Controle de fluxo"
+FlowControl_RxOnly                 = "Rx habilitada"
+FlowControl_TxOnly                 = "Tx habilitada"
+FlowControl_Full                   = "Rx e Tx habilitadas"
+PriorityVLANTag                    = "Prioridade e VLAN"
+PriorityVlanDisabled               = "Prioridade e VLAN desabilitadas"
+PriorityEnabled                    = "Prioridade habilitada"
+PriorityVlanEnabled                = "Prioridade e VLAN habilitadas"
+VlanEnabled                        = "VLAN habilitada"
+SpeedDuplex                        = "Velocidade e duplex"
+AutoNegotiation                    = "NegociaÁ„o autom·tica"
+1000Mb_Full_Duplex                 = "1,0 Gbps/Full duplex"
+10Gb_Full_Duplex                   = "Full-duplex de 10 Gbps"
+40Gb_Full_Duplex                   = "40 Gbps Full Duplex"
+Off                                = "Desligado"
+Enabled                            = "Habilitada"
+Disabled                           = "Desabilitada"
+Bytes4088                          = "4088 Bytes"
+Bytes9014                          = "9014 Bytes"
+LAA                                = "EndereÁo administrado localmente (LAA)"
+JumboPacket                        = "Pacote grande"
+LogLinkState                       = "Evento de estado de link de registro"
+Enable_PME                         = "Habilitar PME"
+WakeOnMagicPacket                  = "Ativar com Magic Packet"
+WakeOnPattern                      = "Despertar quando padr„o coincide"
+PMARPOffload                       = "Descarga de ARP"
+PMNSOffload                        = "Descarga de NS"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+[Strings.0C04] ; Chinese (Traditional)
+InterruptModeration                = "ß√¬_Ω’∏`"
+InterruptThrottleRate              = "ß√¬_∏`¨yª÷≥t≤v"
+Adaptive                           = "Ω’æ„© "
+Extreme                            = "∑•∞™"
+High                               = "∞™"
+Medium                             = "§§"
+Low                                = "ßC"
+IPChksumOffv4                      = "IPv4 ¿À¨d≠»®¯∏¸"
+TCPChksumOffv4                     = "TCP ¿À¨d≠»®¯∏¸ (IPv4)"
+UDPChksumOffv4                     = "UDP ¿À¨d≠»®¯∏¸ (IPv4)"
+LsoV2IPv4                          = "§j∂q∂«∞e®¯∏¸ V2 (IPv4)"
+TCPChksumOffv6                     = "TCP ¿À¨d≠»®¯∏¸ (IPv6)"
+UDPChksumOffv6                     = "UDP ¿À¨d≠»®¯∏¸ (IPv6)"
+LsoV2IPv6                          = "§j∂q∂«∞e®¯∏¸ V2 (IPv6)"
+ChksumOffTxRx                      = "Rx ªP Tx §w±“•Œ"
+ChksumOffTx                        = "Tx §w±“•Œ"
+ChksumOffRx                        = "Rx §w±“•Œ"
+TransmitBuffers                    = "∂«øÈΩwΩƒ∞œ"
+ReceiveBuffers                     = "±µ¶¨ΩwΩƒ∞œ"
+RSS                                = "±µ¶¨∫›Ω’æ„"
+NumRssQueues2                      = "±µ¶¨∫›Ω’æ„¶Ó¶C™∫≥Ã§jº∆•ÿ"
+1queue                             = "1 ≠”¶Ó¶C"
+2queues                            = "2 ≠”¶Ó¶C"
+4queues                            = "4 ≠”¶Ó¶C"
+8queues                            = "8 ≠”¶Ó¶C"
+16queues                           = "16 ≠”¶Ó¶C"
+32queues                           = "32 ≠”¶Ó¶C"
+FlowControl                        = "¨y∂q±±®Ó"
+FlowControl_RxOnly                 = "Rx §w±“•Œ"
+FlowControl_TxOnly                 = "Tx §w±“•Œ"
+FlowControl_Full                   = "Rx ªP Tx §w±“•Œ"
+PriorityVLANTag                    = "¿u•˝∂∂ß«ªP VLAN"
+PriorityVlanDisabled               = "¿u•˝∂∂ß«ªP VLAN §w∞±•Œ"
+PriorityEnabled                    = "¿u•˝∂∂ß«§w±“•Œ"
+PriorityVlanEnabled                = "¿u•˝∂∂ß«ªP VLAN §w±“•Œ"
+VlanEnabled                        = "VLAN §w±“•Œ"
+SpeedDuplex                        = "≥t´◊ªP¬˘§u"
+AutoNegotiation                    = "¶€∞ •ÊØA"
+1000Mb_Full_Duplex                 = "1.0 Gbps •˛¬˘§u"
+10Gb_Full_Duplex                   = "10 Gbps •˛¬˘§u"
+40Gb_Full_Duplex                   = "40 Gbps •˛¬˘§u"
+Off                                = "√ˆ≥¨"
+Enabled                            = "±“•Œ"
+Disabled                           = "∞±•Œ"
+Bytes4088                          = "4088 ¶Ï§∏≤’"
+Bytes9014                          = "9014 ¶Ï§∏≤’"
+LAA                                = "•ª¶a∫ﬁ≤z¶Ïß}"
+JumboPacket                        = "∂W§j´¨´ •]"
+LogLinkState                       = "µnø˝≥sµ≤™¨∫A®∆•Û"
+Enable_PME                         = "±“•Œ PME"
+WakeOnMagicPacket                  = "≥ÍøÙØ´©_´ •]"
+WakeOnPattern                      = "ºÀ¶°§ÒπÔ≥ÍøÙ"
+PMARPOffload                       = "ARP ®¯∏¸"
+PMNSOffload                        = "NS ®¯∏¸"
+ServiceName                        = "i40eb"
+Intel                              = "Intel"
+EventLogMessageDllPath             = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\i40ebmsg.dll"
+DiskName                           = "Intel(R) PRO/40GbE Driver Disk"
+Service.Displayname                = "Intel(R) PRO/40GbE PCIe-A Network Connection Driver"
+
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+
+F10A6.Generic.Description          = "Intel(R) X722 Multi-Function Network Device"
+F37CE.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE backplane"
+F37D0.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE SFP+"
+F37D2.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GBASE-T"
+F37CF.Generic.Description          = "Intel(R) Ethernet Connection X722 for 10GbE QSFP+"
+F37D1.Generic.Description          = "Intel(R) Ethernet Connection X722 for 1GbE"
+F37CC.Generic.Description          = "Intel(R) Ethernet Connection X722"
+
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+
+
