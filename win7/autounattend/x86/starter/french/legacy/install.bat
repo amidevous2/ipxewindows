@@ -49,10 +49,10 @@ if exist x:\Windows\System32\ixn6232.inf drvload x:\Windows\System32\ixn6232.inf
 if exist x:\Windows\System32\ixs6232.inf drvload x:\Windows\System32\ixs6232.inf
 if exist x:\Windows\System32\ixt6232.inf drvload x:\Windows\System32\ixt6232.inf
 if exist x:\Windows\System32\sxb6232.inf drvload x:\Windows\System32\sxb6232.inf
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo "liste des carte reseaux"
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 netsh interface show interface
 ping 127.0.0.1 -n 31 >nul
