@@ -56,8 +56,8 @@ rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 netsh interface show interface
 rem ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ipconfig /renew
 ping 127.0.0.1 -n 31 >nul
 net start dnscache
