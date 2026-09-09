@@ -120,23 +120,23 @@ mkdir S:\Cygwin\var\cache\apt\
 mkdir S:\Cygwin\var\cache\apt\packages
 setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O D:\%isoversionmin%min%arch1%.iso
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
 ping 127.0.0.1 -n 31 >nul
-7z x -y D:\%isoversionmin%min%arch1%.iso -oD:\
+7z x -y S:\%isoversionmin%min%arch1%.iso -oS:\
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O D:\sources\install.swm
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O S:\sources\install.swm
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install2.swm -O D:\sources\install2.swm
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install2.swm -O S:\sources\install2.swm
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install3.swm -O D:\sources\install3.swm
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install3.swm -O S:\sources\install3.swm
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install4.swm -O D:\sources\install4.swm
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install4.swm -O s:\sources\install4.swm
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install5.swm -O D:\sources\install5.swm
+S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install5.swm -O S:\sources\install5.swm
 ping 127.0.0.1 -n 31 >nul
-D:\Cygwin\bin\wget.exe %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O D:\autounattend.xml
+S:\Cygwin\bin\wget.exe %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
 ping 127.0.0.1 -n 31 >nul
-D:\sources\setup.exe /unattend:"D:\autounattend.xml" /noreboot
+S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
 rem ping 127.0.0.1 -n 31 >nul
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
