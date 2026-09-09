@@ -111,7 +111,8 @@ imgfetch --name 7-zip.dll https://raw.githubusercontent.com/amidevous2/ipxewindo
 imgfetch --name 7-zip.chm https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7-zip.chm 7-zip.chm
 imgfetch --name 7z.dll https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7z.dll 7z.dll
 imgfetch --name 7z.exe https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7z.exe 7z.exe
-imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
+#imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
+imgfetch --name wget.exe https://eternallybored.org/misc/wget/1.21.4/32/wget.exe wget.exe
 imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim boot.wim
 boot || goto menu
 
