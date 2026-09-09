@@ -20,9 +20,9 @@ iseq ${os_arch} arm64 && set os_arch aarch64 ||
 
 menu ${os} - ${os_arch}
 item --gap Latest Releases
+item 45 ${space} ${os} 45
 item 44 ${space} ${os} 44
 item 43 ${space} ${os} 43
-item 42 ${space} ${os} 42
 iseq ${os_arch} x86_64 && item rawhide ${space} ${os} rawhide ||
 isset ${osversion} || choose osversion || goto linux_menu
 set ova ${os} ${osversion}
