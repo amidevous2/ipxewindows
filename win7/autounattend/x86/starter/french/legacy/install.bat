@@ -49,8 +49,9 @@ if exist x:\Windows\System32\ixn6232.inf drvload x:\Windows\System32\ixn6232.inf
 if exist x:\Windows\System32\ixs6232.inf drvload x:\Windows\System32\ixs6232.inf
 if exist x:\Windows\System32\ixt6232.inf drvload x:\Windows\System32\ixt6232.inf
 if exist x:\Windows\System32\sxb6232.inf drvload x:\Windows\System32\sxb6232.inf
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
+echo ipconfig /all
+ipconfig /all
+ping 127.0.0.1 -n 31 >nul
 echo "liste des carte reseaux"
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
@@ -59,23 +60,23 @@ rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 ipconfig /renew
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 net start dnscache
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo Wait For Network
 wpeutil WaitForNetwork
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo ipconfig /all
 ipconfig /all
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
 echo clean >> config.txt
 echo convert mbr >> config.txt
@@ -90,42 +91,42 @@ echo create partition primary size=10240 >> config.txt
 echo format fs=ntfs quick label="INSTALL" >> config.txt
 echo assign letter=D >> config.txt
 echo exit >> config.txt
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 diskpart /s config.txt
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo "liste des partition"
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo list disk > list.txt
 echo exit >> list.txt
 diskpart /s list.txt
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ping -n 1 google.fr
 ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 setup-%arch1%.exe --no-admin --root D:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l D:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O D:\%isoversionmin%min%arch1%.iso
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 7z x -y D:\%isoversionmin%min%arch1%.iso -oD:\
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O D:\sources\install.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install2.swm -O D:\sources\install2.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install3.swm -O D:\sources\install3.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install4.swm -O D:\sources\install4.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install5.swm -O D:\sources\install5.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O D:\autounattend.xml
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 D:\sources\setup.exe /unattend:"D:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
 if exist x:\Windows\System32\balloon.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\balloon.inf
 if exist x:\Windows\System32\netkvm.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\netkvm.inf
@@ -155,5 +156,5 @@ if exist x:\Windows\System32\vmmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\
 if exist x:\Windows\System32\e1c6232.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1c6232.inf
 if exist x:\Windows\System32\vmusbmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmusbmouse.inf
 if exist x:\Windows\System32\vmxnet3.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmxnet3.inf
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 shutdown -r -t 1
