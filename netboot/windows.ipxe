@@ -43,6 +43,7 @@ imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no back
 # TODO 0d4f only installing drivers in winpe, not when getting into windows.
 # 15fc on T15 not working in winpe either
 # TODO also fix ipxe sources and test
+goto skip_vbox-2
 iseq ${pciid} 80860d4f-2 && goto use_e1d68-2 ||
 iseq ${pciid} 808615fc-2 && goto use_e1d68-2 ||
 iseq ${pciid} 808615bb-2 && goto use_e1d68-2 ||
@@ -299,7 +300,7 @@ imgfetch --name 7-zip32.dll https://github.com/amidevous/wimboot-install/raw/ref
 imgfetch --name 7z.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
 imgfetch --name 7z.exe https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
 imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
-imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows7/boot.x86.wim boot.wim
+imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim boot.wim
 #echo wimboot.i386:
 #imgstat wimboot.i386
 #echo bcd:
