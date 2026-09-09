@@ -215,75 +215,75 @@ iseq ${pciid} 1af41000-2 && goto use_virtio-2 ||
 goto skip_virtio-2
 :use_virtio-2
 # without extra name wimboot crashes (in pcbios mode)
-imgfetch --name balloon.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.cat balloon.cat ||
-imgfetch --name balloon.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.inf balloon.inf ||
-imgfetch --name balloon.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.sys balloon.sys ||
-imgfetch --name blnsvr.exe ${giturlraw}/win10/drv/virtio-win-0.1.240/Balloon/w10/x86/blnsvr.exe blnsvr.exe ||
-imgfetch --name netkvm.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.cat netkvm.cat ||
-imgfetch --name netkvm.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.inf netkvm.inf ||
-imgfetch --name netkvm.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.sys netkvm.sys ||
-imgfetch --name netkvmco.dll ${giturlraw}/win10/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvmco.dll netkvmco.dll ||
-imgfetch --name vioscsi.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.cat vioscsi.cat ||
-imgfetch --name vioscsi.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.inf vioscsi.inf ||
-imgfetch --name vioscsi.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.sys vioscsi.sys ||
-imgfetch --name viostor.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.cat viostor.cat ||
-imgfetch --name viostor.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.inf viostor.inf ||
-imgfetch --name viostor.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.sys viostor.sys ||
-imgfetch --name fwcfg.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.cat fwcfg.cat ||
-imgfetch --name fwcfg.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.inf fwcfg.inf ||
-imgfetch --name fwcfg.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.sys fwcfg.sys ||
-imgfetch --name pvpanic.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.cat pvpanic.cat ||
-imgfetch --name pvpanic.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.inf pvpanic.inf ||
-imgfetch --name pvpanic.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.sys pvpanic.sys ||
-imgfetch --name pvpanic-pci.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic-pci.cat pvpanic-pci.cat ||
-imgfetch --name pvpanic-pci.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic-pci.inf pvpanic-pci.inf ||
-imgfetch --name qemufwcfg.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/qemufwcfg/w10/x86/qemufwcfg.cat qemufwcfg.cat ||
-imgfetch --name qemupciserial.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/qemupciserial/w10/x86/qemupciserial.cat qemupciserial.cat ||
-imgfetch --name qemupciserial.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/qemupciserial/w10/x86/qemupciserial.inf qemupciserial.inf ||
-imgfetch --name qxldod.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.cat qxldod.cat ||
-imgfetch --name qxldod.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.inf qxldod.inf ||
-imgfetch --name qxldod.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.sys qxldod.sys ||
-imgfetch --name vioprot.cat ${giturlraw}/win10/drv/drv/virtio-win-0.1.240/sriov/w10/x86/vioprot.cat vioprot.cat ||
-imgfetch --name vioprot.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/sriov/w10/x86/vioprot.inf vioprot.inf ||
-imgfetch --name viofs.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.cat viofs.cat ||
-imgfetch --name viofs.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.inf viofs.inf ||
-imgfetch --name viofs.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.sys viofs.sys ||
-imgfetch --name viogpudo.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.cat viogpudo.cat ||
-imgfetch --name viogpudo.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.inf viogpudo.inf ||
-imgfetch --name viogpudo.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.sys viogpudo.sys ||
-imgfetch --name vioinput.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.cat vioinput.cat ||
-imgfetch --name vioinput.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.inf vioinput.inf ||
-imgfetch --name vioinput.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.sys vioinput.sys ||
-imgfetch --name viorng.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.cat viorng.cat ||
-imgfetch --name viorng.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.inf viorng.inf ||
-imgfetch --name viorng.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.sys viorng.sys ||
-imgfetch --name vioser.cat ${giturlraw}/win10/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.cat vioser.cat ||
-imgfetch --name vioser.inf ${giturlraw}/win10/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.inf vioser.inf ||
-imgfetch --name vioser.sys ${giturlraw}/win10/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.sys vioser.sys ||
+imgfetch --name balloon.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.cat balloon.cat ||
+imgfetch --name balloon.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.inf balloon.inf ||
+imgfetch --name balloon.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/Balloon/w10/x86/balloon.sys balloon.sys ||
+imgfetch --name blnsvr.exe ${giturlraw}/win7/drv/virtio-win-0.1.240/Balloon/w10/x86/blnsvr.exe blnsvr.exe ||
+imgfetch --name netkvm.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.cat netkvm.cat ||
+imgfetch --name netkvm.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.inf netkvm.inf ||
+imgfetch --name netkvm.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvm.sys netkvm.sys ||
+imgfetch --name netkvmco.dll ${giturlraw}/win7/drv/virtio-win-0.1.240/NetKVM/w10/x86/netkvmco.dll netkvmco.dll ||
+imgfetch --name vioscsi.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.cat vioscsi.cat ||
+imgfetch --name vioscsi.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.inf vioscsi.inf ||
+imgfetch --name vioscsi.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/vioscsi/w10/x86/vioscsi.sys vioscsi.sys ||
+imgfetch --name viostor.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.cat viostor.cat ||
+imgfetch --name viostor.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.inf viostor.inf ||
+imgfetch --name viostor.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/viostor/w10/x86/viostor.sys viostor.sys ||
+imgfetch --name fwcfg.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.cat fwcfg.cat ||
+imgfetch --name fwcfg.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.inf fwcfg.inf ||
+imgfetch --name fwcfg.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/fwcfg/w10/x86/fwcfg.sys fwcfg.sys ||
+imgfetch --name pvpanic.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.cat pvpanic.cat ||
+imgfetch --name pvpanic.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.inf pvpanic.inf ||
+imgfetch --name pvpanic.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic.sys pvpanic.sys ||
+imgfetch --name pvpanic-pci.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic-pci.cat pvpanic-pci.cat ||
+imgfetch --name pvpanic-pci.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/pvpanic/w10/x86/pvpanic-pci.inf pvpanic-pci.inf ||
+imgfetch --name qemufwcfg.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/qemufwcfg/w10/x86/qemufwcfg.cat qemufwcfg.cat ||
+imgfetch --name qemupciserial.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/qemupciserial/w10/x86/qemupciserial.cat qemupciserial.cat ||
+imgfetch --name qemupciserial.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/qemupciserial/w10/x86/qemupciserial.inf qemupciserial.inf ||
+imgfetch --name qxldod.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.cat qxldod.cat ||
+imgfetch --name qxldod.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.inf qxldod.inf ||
+imgfetch --name qxldod.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/qxldod/w10/x86/qxldod.sys qxldod.sys ||
+imgfetch --name vioprot.cat ${giturlraw}/win7/drv/drv/virtio-win-0.1.240/sriov/w10/x86/vioprot.cat vioprot.cat ||
+imgfetch --name vioprot.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/sriov/w10/x86/vioprot.inf vioprot.inf ||
+imgfetch --name viofs.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.cat viofs.cat ||
+imgfetch --name viofs.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.inf viofs.inf ||
+imgfetch --name viofs.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/viofs/w10/x86/viofs.sys viofs.sys ||
+imgfetch --name viogpudo.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.cat viogpudo.cat ||
+imgfetch --name viogpudo.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.inf viogpudo.inf ||
+imgfetch --name viogpudo.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/viogpudo/w10/x86/viogpudo.sys viogpudo.sys ||
+imgfetch --name vioinput.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.cat vioinput.cat ||
+imgfetch --name vioinput.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.inf vioinput.inf ||
+imgfetch --name vioinput.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/vioinput/w10/x86/vioinput.sys vioinput.sys ||
+imgfetch --name viorng.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.cat viorng.cat ||
+imgfetch --name viorng.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.inf viorng.inf ||
+imgfetch --name viorng.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/viorng/w10/x86/viorng.sys viorng.sys ||
+imgfetch --name vioser.cat ${giturlraw}/win7/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.cat vioser.cat ||
+imgfetch --name vioser.inf ${giturlraw}/win7/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.inf vioser.inf ||
+imgfetch --name vioser.sys ${giturlraw}/win7/drv/virtio-win-0.1.240/vioserial/w10/x86/vioser.sys vioser.sys ||
 goto skip_virtio-2
 :skip_virtio-2
 iseq ${pciid} 8086100e-2 && goto use_vbox-2 ||
 goto skip_vbox-2
 :use_vbox-2
-imgfetch --name VBoxGuest.inf ${giturlraw}/win10/drv/vbox/VBoxGuest.inf VBoxGuest.inf
-imgfetch --name VBoxGuest.cat ${giturlraw}/win10/drv/vbox/VBoxGuest.cat VBoxGuest.cat
-imgfetch --name VBoxGuest.sys ${giturlraw}/win10/drv/vbox/VBoxGuest.sys VBoxGuest.sys
-imgfetch --name VBoxGuestEarlyNT.cat ${giturlraw}/win10/drv/vbox/VBoxGuestEarlyNT.cat VBoxGuestEarlyNT.cat
-imgfetch --name VBoxGuestEarlyNT.inf ${giturlraw}/win10/drv/vbox/VBoxGuestEarlyNT.inf VBoxGuestEarlyNT.inf
-imgfetch --name VBoxMouse.cat ${giturlraw}/win10/drv/vbox/VBoxMouse.cat VBoxMouse.cat
-imgfetch --name VBoxMouse.inf ${giturlraw}/win10/drv/vbox/VBoxMouse.inf VBoxMouse.inf
-imgfetch --name VBoxMouse.sys ${giturlraw}/win10/drv/vbox/VBoxMouse.sys VBoxMouse.sys
-imgfetch --name VBoxVideo.cat ${giturlraw}/win10/drv/vbox/VBoxVideo.cat VBoxVideo.cat
-imgfetch --name VBoxVideo.inf ${giturlraw}/win10/drv/vbox/VBoxVideo.inf VBoxVideo.inf
-imgfetch --name VBoxVideo.sys ${giturlraw}/win10/drv/vbox/VBoxVideo.sys VBoxVideo.sys
-imgfetch --name VBoxVideoEarlyNT.cat ${giturlraw}/win10/drv/vbox/VBoxVideoEarlyNT.cat VBoxVideoEarlyNT.cat
-imgfetch --name VBoxVideoEarlyNT.inf ${giturlraw}/win10/drv/vbox/VBoxVideoEarlyNT.inf VBoxVideoEarlyNT.inf
-imgfetch --name VBoxWddm.cat ${giturlraw}/win10/drv/vbox/VBoxWddm.cat VBoxWddm.cat
-imgfetch --name VBoxWddm.inf ${giturlraw}/win10/drv/vbox/VBoxWddm.inf VBoxWddm.inf
-imgfetch --name VBoxWddm.sys ${giturlraw}/win10/drv/vbox/VBoxWddm.sys VBoxWddm.sys
-imgfetch --name vboxguest.cat ${giturlraw}/win10/drv/vbox/vboxguest.cat vboxguest.cat
-imgfetch --name vboxmouse.cat ${giturlraw}/win10/drv/vbox/vboxmouse.cat vboxmouse.cat
-imgfetch --name vboxwddm.cat ${giturlraw}/win10/drv/vbox/vboxwddm.cat vboxwddm.cat
+imgfetch --name VBoxGuest.inf ${giturlraw}/win7/drv/vbox/VBoxGuest.inf VBoxGuest.inf
+imgfetch --name VBoxGuest.cat ${giturlraw}/win7/drv/vbox/VBoxGuest.cat VBoxGuest.cat
+imgfetch --name VBoxGuest.sys ${giturlraw}/win7/drv/vbox/VBoxGuest.sys VBoxGuest.sys
+imgfetch --name VBoxGuestEarlyNT.cat ${giturlraw}/win7/drv/vbox/VBoxGuestEarlyNT.cat VBoxGuestEarlyNT.cat
+imgfetch --name VBoxGuestEarlyNT.inf ${giturlraw}/win7/drv/vbox/VBoxGuestEarlyNT.inf VBoxGuestEarlyNT.inf
+imgfetch --name VBoxMouse.cat ${giturlraw}/win7/drv/vbox/VBoxMouse.cat VBoxMouse.cat
+imgfetch --name VBoxMouse.inf ${giturlraw}/win7/drv/vbox/VBoxMouse.inf VBoxMouse.inf
+imgfetch --name VBoxMouse.sys ${giturlraw}/win7/drv/vbox/VBoxMouse.sys VBoxMouse.sys
+imgfetch --name VBoxVideo.cat ${giturlraw}/win7/drv/vbox/VBoxVideo.cat VBoxVideo.cat
+imgfetch --name VBoxVideo.inf ${giturlraw}/win7/drv/vbox/VBoxVideo.inf VBoxVideo.inf
+imgfetch --name VBoxVideo.sys ${giturlraw}/win7/drv/vbox/VBoxVideo.sys VBoxVideo.sys
+imgfetch --name VBoxVideoEarlyNT.cat ${giturlraw}/win7/drv/vbox/VBoxVideoEarlyNT.cat VBoxVideoEarlyNT.cat
+imgfetch --name VBoxVideoEarlyNT.inf ${giturlraw}/win7/drv/vbox/VBoxVideoEarlyNT.inf VBoxVideoEarlyNT.inf
+imgfetch --name VBoxWddm.cat ${giturlraw}/win7/drv/vbox/VBoxWddm.cat VBoxWddm.cat
+imgfetch --name VBoxWddm.inf ${giturlraw}/win7/drv/vbox/VBoxWddm.inf VBoxWddm.inf
+imgfetch --name VBoxWddm.sys ${giturlraw}/win7/drv/vbox/VBoxWddm.sys VBoxWddm.sys
+imgfetch --name vboxguest.cat ${giturlraw}/win7/drv/vbox/vboxguest.cat vboxguest.cat
+imgfetch --name vboxmouse.cat ${giturlraw}/win7/drv/vbox/vboxmouse.cat vboxmouse.cat
+imgfetch --name vboxwddm.cat ${giturlraw}/win7/drv/vbox/vboxwddm.cat vboxwddm.cat
 goto skip_vbox-2
 :skip_vbox-2
 imgfetch --name autounattend.xml ${giturlraw}/win7/autounattend/x86/starter/french/legacy/autounattend.xml autounattend.xml
@@ -391,25 +391,25 @@ goto skip_virtio-3
 iseq ${pciid} 8086100e-3 && goto use_vbox-3 ||
 goto skip_vbox-3
 :use_vbox-3
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxGuest.inf VBoxGuest.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxGuest.cat VBoxGuest.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxGuest.sys VBoxGuest.sys
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxGuestEarlyNT.cat VBoxGuestEarlyNT.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxGuestEarlyNT.inf VBoxGuestEarlyNT.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxMouse.cat VBoxMouse.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxMouse.inf VBoxMouse.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxMouse.sys VBoxMouse.sys
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxVideo.cat VBoxVideo.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxVideo.inf VBoxVideo.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxVideo.sys VBoxVideo.sys
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxVideoEarlyNT.cat VBoxVideoEarlyNT.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxVideoEarlyNT.inf VBoxVideoEarlyNT.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxWddm.cat VBoxWddm.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxWddm.inf VBoxWddm.inf
-imgfetch --name ${giturlraw}/win10/drv/vbox/VBoxWddm.sys VBoxWddm.sys
-imgfetch --name ${giturlraw}/win10/drv/vbox/vboxguest.cat vboxguest.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/vboxmouse.cat vboxmouse.cat
-imgfetch --name ${giturlraw}/win10/drv/vbox/vboxwddm.cat vboxwddm.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxGuest.inf VBoxGuest.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxGuest.cat VBoxGuest.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxGuest.sys VBoxGuest.sys
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxGuestEarlyNT.cat VBoxGuestEarlyNT.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxGuestEarlyNT.inf VBoxGuestEarlyNT.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxMouse.cat VBoxMouse.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxMouse.inf VBoxMouse.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxMouse.sys VBoxMouse.sys
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxVideo.cat VBoxVideo.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxVideo.inf VBoxVideo.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxVideo.sys VBoxVideo.sys
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxVideoEarlyNT.cat VBoxVideoEarlyNT.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxVideoEarlyNT.inf VBoxVideoEarlyNT.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxWddm.cat VBoxWddm.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxWddm.inf VBoxWddm.inf
+imgfetch --name ${giturlraw}/win7/drv/vbox/VBoxWddm.sys VBoxWddm.sys
+imgfetch --name ${giturlraw}/win7/drv/vbox/vboxguest.cat vboxguest.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/vboxmouse.cat vboxmouse.cat
+imgfetch --name ${giturlraw}/win7/drv/vbox/vboxwddm.cat vboxwddm.cat
 goto skip_vbox-3
 :skip_vbox-3
 imgfetch --name ${giturlraw}/win7/autounattend/x64/efi/autounattend.xml autounattend.xml
