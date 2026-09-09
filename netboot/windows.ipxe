@@ -56,8 +56,8 @@ iseq ${pciid} 8086100f && goto use_e1d68-2 ||
 iseq ${pciid} 8086100e && goto use_intele1000 ||
 goto skip_intele1000
 :use_intele1000
-imgfetch --name e1s6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/WinPE/e1s6232.inf e1s6232.inf ||
-imgfetch --name e1s6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/WinPE/e1s6232.sys e1s6232.sys ||
+#imgfetch --name e1s6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/WinPE/e1s6232.inf e1s6232.inf ||
+#imgfetch --name e1s6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/WinPE/e1s6232.sys e1s6232.sys ||
 imgfetch --name NicCo36.dll ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/NicCo36.dll NicCo36.dll ||
 imgfetch --name NicInE1R.dll ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/NicInE1R.dll NicInE1R.dll  ||
 imgfetch --name NicInE6.dll ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/NicInE6.dll NicInE6.dll ||
@@ -72,10 +72,10 @@ imgfetch --name e1000msg.dll ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1000m
 #imgfetch --name e1c6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1c6232.inf e1c6232.inf ||
 #imgfetch --name e1c6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1c6232.sys e1c6232.sys ||
 imgfetch --name e1cmsg.dll ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1cmsg.dll e1cmsg.dll ||
-#imgfetch --name e1d6232.cat ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.cat e1d6232.cat ||
-#imgfetch --name e1d6232.din ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.din e1d6232.din ||
-#imgfetch --name e1d6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.inf e1d6232.inf ||
-#imgfetch --name e1d6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.sys e1d6232.sys ||
+imgfetch --name e1d6232.cat ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.cat e1d6232.cat ||
+imgfetch --name e1d6232.din ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.din e1d6232.din ||
+imgfetch --name e1d6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.inf e1d6232.inf ||
+imgfetch --name e1d6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1d6232.sys e1d6232.sys ||
 #imgfetch --name e1e6232.INF ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1e6232.INF e1e6232.INF ||
 #imgfetch --name e1e6232.cat ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1e6232.cat e1e6232.cat ||
 #imgfetch --name e1e6232.din ${giturlraw}/win7/dvr/x86/IntelE1000/PRO1000/e1e6232.din e1e6232.din ||
