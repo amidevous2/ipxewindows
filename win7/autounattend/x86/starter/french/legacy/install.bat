@@ -61,20 +61,20 @@ rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 rem ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
-rem net start dnscache
+net start dnscache
+ping 127.0.0.1 -n 31 >nul
+netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
+ping 127.0.0.1 -n 31 >nul
+netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
+ping 127.0.0.1 -n 31 >nul
+ipconfig /flushdns
+ping 127.0.0.1 -n 31 >nul
+echo Wait For Network
+wpeutil WaitForNetwork
+ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
-rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
-rem ping 127.0.0.1 -n 31 >nul
-rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
-rem ping 127.0.0.1 -n 31 >nul
-rem ipconfig /flushdns
-rem ping 127.0.0.1 -n 31 >nul
-rem echo Wait For Network
-rem wpeutil WaitForNetwork
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-rem echo ipconfig /all
-rem ipconfig /all
+echo ipconfig /all
+ipconfig /all
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
