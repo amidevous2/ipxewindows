@@ -1,6 +1,14 @@
 #!ipxe
 set boot_domain raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/netboot
-
+set commit main
+set winver win7
+set winversion windows7
+set arch1 x86
+set arch2 x86
+set arch3 i386
+set lang french
+set giturl https://github.com/amidevous2/ipxewindows
+set giturlraw https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main
 
 :start
 isset ${arch} && goto skip_arch_detect ||
