@@ -79,13 +79,10 @@ ping 127.0.0.1 -n 31 >nul
 diskpart /s config.txt
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
+echo "liste des partition"
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
-if exist D:\ echo D_EXISTE
-if not exist D:\ echo D_ABSENT
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+echo list disk | diskpart
 ping 127.0.0.1 -n 31 >nul
 ping -n 1 google.fr
 ping 127.0.0.1 -n 31 >nul
