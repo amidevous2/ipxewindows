@@ -8,35 +8,35 @@ set isoversionmin=win7
 set arch1=x86
 set arch2=x86
 set cygmirror=https://mirrors.kernel.org/sourceware/cygwin-archive/20221123/
-if exist x:\Windows\System32\e1d68x64.inf pnputil /i /a x:\Windows\System32\e1d68x64.inf
-if exist x:\Windows\System32\balloon.inf pnputil /i /a x:\Windows\System32\balloon.inf
-if exist x:\Windows\System32\netkvm.inf pnputil /i /a x:\Windows\System32\netkvm.inf
-if exist x:\Windows\System32\viostor.inf pnputil /i /a x:\Windows\System32\viostor.inf
-if exist x:\Windows\System32\VBoxGuest.inf pnputil /i /a x:\Windows\System32\VBoxGuest.inf
-if exist x:\Windows\System32\VBoxGuestEarlyNT.inf pnputil /i /a x:\Windows\System32\VBoxGuestEarlyNT.inf
-if exist x:\Windows\System32\VBoxMouse.inf pnputil /i /a x:\Windows\System32\VBoxMouse.inf
-if exist x:\Windows\System32\VBoxVideo.inf pnputil /i /a x:\Windows\System32\VBoxVideo.inf
-if exist x:\Windows\System32\VBoxVideoEarlyNT.inf pnputil /i /a x:\Windows\System32\VBoxVideoEarlyNT.inf
-if exist x:\Windows\System32\VBoxWddm.inf pnputil /i /a x:\Windows\System32\VBoxWddm.inf
-if exist x:\Windows\System32\fwcfg.inf pnputil /i /a x:\Windows\System32\fwcfg.inf
-if exist x:\Windows\System32\pvpanic-pci.inf pnputil /i /a x:\Windows\System32\pvpanic-pci.inf
-if exist x:\Windows\System32\pvpanic.inf pnputil /i /a x:\Windows\System32\pvpanic.inf
-if exist x:\Windows\System32\qemupciserial.inf pnputil /i /a x:\Windows\System32\qemupciserial.inf
-if exist x:\Windows\System32\qxldod.inf pnputil /i /a x:\Windows\System32\qxldod.inf
-if exist x:\Windows\System32\vioprot.inf pnputil /i /a x:\Windows\System32\vioprot.inf
-if exist x:\Windows\System32\viofs.inf pnputil /i /a x:\Windows\System32\viofs.inf
-if exist x:\Windows\System32\viogpudo.inf pnputil /i /a x:\Windows\System32\viogpudo.inf
-if exist x:\Windows\System32\vioinput.inf pnputil /i /a x:\Windows\System32\vioinput.inf
-if exist x:\Windows\System32\viorng.inf pnputil /i /a x:\Windows\System32\viorng.inf
-if exist x:\Windows\System32\vioser.inf pnputil /i /a x:\Windows\System32\vioser.inf
-if exist x:\Windows\System32\pvscsi.inf pnputil /i /a x:\Windows\System32\pvscsi.inf
-if exist x:\Windows\System32\vm3d.inf pnputil /i /a x:\Windows\System32\vm3d.inf
-if exist x:\Windows\System32\vmaudio.inf pnputil /i /a x:\Windows\System32\vmaudio.inf
-if exist x:\Windows\System32\vmci.inf pnputil /i /a x:\Windows\System32\vmci.inf
-if exist x:\Windows\System32\vmmouse.inf pnputil /i /a x:\Windows\System32\vmmouse.inf
-if exist x:\Windows\System32\vmusbmouse.inf pnputil /i /a x:\Windows\System32\vmusbmouse.inf
-if exist x:\Windows\System32\vmxnet3.inf pnputil /i /a x:\Windows\System32\vmxnet3.inf
-if exist x:\Windows\System32\e1c6232.inf pnputil /i /a x:\Windows\System32\e1c6232.inf
+if exist x:\Windows\System32\e1d68x64.inf drvload x:\Windows\System32\e1d68x64.inf
+if exist x:\Windows\System32\balloon.inf drvload x:\Windows\System32\balloon.inf
+if exist x:\Windows\System32\netkvm.inf drvload x:\Windows\System32\netkvm.inf
+if exist x:\Windows\System32\viostor.inf drvload x:\Windows\System32\viostor.inf
+if exist x:\Windows\System32\VBoxGuest.inf drvload x:\Windows\System32\VBoxGuest.inf
+if exist x:\Windows\System32\VBoxGuestEarlyNT.inf drvload x:\Windows\System32\VBoxGuestEarlyNT.inf
+if exist x:\Windows\System32\VBoxMouse.inf drvload x:\Windows\System32\VBoxMouse.inf
+if exist x:\Windows\System32\VBoxVideo.inf drvload x:\Windows\System32\VBoxVideo.inf
+if exist x:\Windows\System32\VBoxVideoEarlyNT.inf drvload x:\Windows\System32\VBoxVideoEarlyNT.inf
+if exist x:\Windows\System32\VBoxWddm.inf drvload x:\Windows\System32\VBoxWddm.inf
+if exist x:\Windows\System32\fwcfg.inf drvload x:\Windows\System32\fwcfg.inf
+if exist x:\Windows\System32\pvpanic-pci.inf drvload x:\Windows\System32\pvpanic-pci.inf
+if exist x:\Windows\System32\pvpanic.inf drvload x:\Windows\System32\pvpanic.inf
+if exist x:\Windows\System32\qemupciserial.inf drvload x:\Windows\System32\qemupciserial.inf
+if exist x:\Windows\System32\qxldod.inf drvload x:\Windows\System32\qxldod.inf
+if exist x:\Windows\System32\vioprot.inf drvload x:\Windows\System32\vioprot.inf
+if exist x:\Windows\System32\viofs.inf drvload x:\Windows\System32\viofs.inf
+if exist x:\Windows\System32\viogpudo.inf drvload x:\Windows\System32\viogpudo.inf
+if exist x:\Windows\System32\vioinput.inf drvload x:\Windows\System32\vioinput.inf
+if exist x:\Windows\System32\viorng.inf drvload x:\Windows\System32\viorng.inf
+if exist x:\Windows\System32\vioser.inf drvload x:\Windows\System32\vioser.inf
+if exist x:\Windows\System32\pvscsi.inf drvload x:\Windows\System32\pvscsi.inf
+if exist x:\Windows\System32\vm3d.inf drvload x:\Windows\System32\vm3d.inf
+if exist x:\Windows\System32\vmaudio.inf drvload x:\Windows\System32\vmaudio.inf
+if exist x:\Windows\System32\vmci.inf drvload x:\Windows\System32\vmci.inf
+if exist x:\Windows\System32\vmmouse.inf drvload x:\Windows\System32\vmmouse.inf
+if exist x:\Windows\System32\vmusbmouse.inf drvload x:\Windows\System32\vmusbmouse.inf
+if exist x:\Windows\System32\vmxnet3.inf drvload x:\Windows\System32\vmxnet3.inf
+if exist x:\Windows\System32\e1c6232.inf drvload x:\Windows\System32\e1c6232.inf
 ping 127.0.0.1 -n 31 >nul
 ipconfig /renew
 ping 127.0.0.1 -n 31 >nul
