@@ -65,8 +65,10 @@ prompt
 goto main_menu
 
 :local
-echo Booting from local disks ...
-exit 1
+# echo Booting from local disks ...
+# exit 1
+imgfree
+kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui
 
 :shell
 echo Type "exit" to return to menu.
