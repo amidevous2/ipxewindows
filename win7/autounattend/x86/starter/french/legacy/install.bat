@@ -38,6 +38,14 @@ if exist x:\Windows\System32\vmusbmouse.inf drvload x:\Windows\System32\vmusbmou
 if exist x:\Windows\System32\vmxnet3.inf drvload x:\Windows\System32\vmxnet3.inf
 if exist x:\Windows\System32\e1c6232.inf drvload x:\Windows\System32\e1c6232.inf
 ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+echo "liste des carte reseaux"
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+netsh interface show interface
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 ipconfig /renew
 ping 127.0.0.1 -n 31 >nul
 net start dnscache
