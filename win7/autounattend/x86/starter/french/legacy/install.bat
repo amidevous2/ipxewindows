@@ -62,15 +62,15 @@ rem ping 127.0.0.1 -n 31 >nul
 rem ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
 net start dnscache
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ()
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8")
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8", "8.8.4.4")
 rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
 echo ipconfig /flushdns
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
 rem echo ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
@@ -78,7 +78,7 @@ rem ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
 echo Wait For Network
 wpeutil WaitForNetwork
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 echo ipconfig /all
 ipconfig /all
@@ -119,23 +119,23 @@ mkdir S:\Cygwin\var\cache\
 mkdir S:\Cygwin\var\cache\apt\
 mkdir S:\Cygwin\var\cache\apt\packages
 setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 7z x -y S:\%isoversionmin%min%arch1%.iso -oS:\
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O S:\sources\install.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install2.swm -O S:\sources\install2.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install3.swm -O S:\sources\install3.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install4.swm -O s:\sources\install4.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install5.swm -O S:\sources\install5.swm
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\Cygwin\bin\wget.exe %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
 rem ping 127.0.0.1 -n 31 >nul
@@ -168,5 +168,8 @@ if exist x:\Windows\System32\vmmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\
 if exist x:\Windows\System32\e1c6232.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1c6232.inf
 if exist x:\Windows\System32\vmusbmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmusbmouse.inf
 if exist x:\Windows\System32\vmxnet3.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmxnet3.inf
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 shutdown -r -t 1
