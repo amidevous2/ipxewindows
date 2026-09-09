@@ -52,7 +52,7 @@ iseq ${pciid} 80860d4f && goto use_e1d68-2 ||
 iseq ${pciid} 808615fc && goto use_e1d68-2 ||
 iseq ${pciid} 808615bb && goto use_e1d68-2 ||
 iseq ${pciid} 808615be && goto use_e1d68-2 ||
-#iseq ${pciid} 8086100f && goto use_e1d68-2 ||
+iseq ${pciid} 8086100f && goto use_8086100f ||
 iseq ${pciid} 8086100e && goto use_intele1000 ||
 goto skip_intele1000
 :use_intele1000
@@ -176,6 +176,13 @@ imgfetch --name ixt6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PROXGB/ixt6232.
 imgfetch --name sxb6232.inf ${giturlraw}/win7/dvr/x86/IntelE1000/PROXGB/sxb6232.inf sxb6232.inf ||
 imgfetch --name sxb6232.sys ${giturlraw}/win7/dvr/x86/IntelE1000/PROXGB/sxb6232.sys sxb6232.sys ||
 :skip_intel
+goto skip_8086100f
+:use_8086100f
+imgfetch --name txtsetup.oem ${giturlraw}/win7/dvr/x86/vmware/txtsetup.oem txtsetup.oem ||
+imgfetch --name pvscsi.cat ${giturlraw}/win7/dvr/x86/vmware/pvscsi.cat pvscsi.cat ||
+imgfetch --name pvscsi.inf ${giturlraw}/win7/dvr/x86/vmware/pvscsi.inf pvscsi.inf ||
+imgfetch --name pvscsi.sys ${giturlraw}/win7/dvr/x86/vmware/pvscsi.sys pvscsi.sys ||
+:skip_8086100f
 goto skip_e1d68-2
 :use_e1d68-2
 #set startnetx ${startnetx}&drvload=e1d68x64.inf
