@@ -51,30 +51,30 @@ if exist x:\Windows\System32\ixt6232.inf drvload x:\Windows\System32\ixt6232.inf
 if exist x:\Windows\System32\sxb6232.inf drvload x:\Windows\System32\sxb6232.inf
 echo ipconfig /all
 ipconfig /all
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 echo "liste des carte reseaux"
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
-netsh interface show interface
+rem netsh interface show interface
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
-ipconfig /renew
+rem ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
-net start dnscache
+rem net start dnscache
 rem ping 127.0.0.1 -n 31 >nul
-netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
+rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
 rem ping 127.0.0.1 -n 31 >nul
-netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
+rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
 rem ping 127.0.0.1 -n 31 >nul
-ipconfig /flushdns
+rem ipconfig /flushdns
 rem ping 127.0.0.1 -n 31 >nul
-echo Wait For Network
-wpeutil WaitForNetwork
+rem echo Wait For Network
+rem wpeutil WaitForNetwork
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
-echo ipconfig /all
-ipconfig /all
+rem echo ipconfig /all
+rem ipconfig /all
 rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
