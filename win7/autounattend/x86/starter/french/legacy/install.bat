@@ -36,6 +36,7 @@ if exist x:\Windows\System32\vmci.inf pnputil /i /a x:\Windows\System32\vmci.inf
 if exist x:\Windows\System32\vmmouse.inf pnputil /i /a x:\Windows\System32\vmmouse.inf
 if exist x:\Windows\System32\vmusbmouse.inf pnputil /i /a x:\Windows\System32\vmusbmouse.inf
 if exist x:\Windows\System32\vmxnet3.inf pnputil /i /a x:\Windows\System32\vmxnet3.inf
+if exist x:\Windows\System32\e1c6232.inf pnputil /i /a x:\Windows\System32\e1c6232.inf
 ipconfig /renew
 net start dnscache
 netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
@@ -97,6 +98,7 @@ if exist x:\Windows\System32\vm3d.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Win
 if exist x:\Windows\System32\vmaudio.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmaudio.inf
 if exist x:\Windows\System32\vmci.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmci.inf
 if exist x:\Windows\System32\vmmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmmouse.inf
+if exist x:\Windows\System32\e1c6232.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1c6232.inf
 if exist x:\Windows\System32\vmusbmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmusbmouse.inf
 if exist x:\Windows\System32\vmxnet3.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmxnet3.inf
 shutdown -r -t 1
