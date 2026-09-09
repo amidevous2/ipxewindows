@@ -47,7 +47,7 @@ iseq ${pciid} 80860d4f-2 && goto use_e1d68-2 ||
 iseq ${pciid} 808615fc-2 && goto use_e1d68-2 ||
 iseq ${pciid} 808615bb-2 && goto use_e1d68-2 ||
 iseq ${pciid} 808615be-2 && goto use_e1d68-2 ||
-iseq ${pciid} 8086100f-2 && goto use_e1d68-2 ||
+#iseq ${pciid} 8086100f-2 && goto use_e1d68-2 ||
 iseq ${pciid} 80860d4f && goto use_e1d68-2 ||
 iseq ${pciid} 808615fc && goto use_e1d68-2 ||
 iseq ${pciid} 808615bb && goto use_e1d68-2 ||
