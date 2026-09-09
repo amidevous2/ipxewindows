@@ -299,7 +299,8 @@ imgfetch --name 7-zip.dll https://github.com/amidevous/wimboot-install/raw/refs/
 imgfetch --name 7-zip32.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip32.dll 7-zip32.dll
 imgfetch --name 7z.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
 imgfetch --name 7z.exe https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
-imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
+#imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
+imgfetch --name wget.exe https://eternallybored.org/misc/wget/1.21.4/32/wget.exe wget.exe
 imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim boot.wim
 #echo wimboot.i386:
 #imgstat wimboot.i386
