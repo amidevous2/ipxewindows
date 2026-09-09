@@ -96,8 +96,24 @@ prompt
 goto main_menu
 
 :local
-echo Booting from local disks ...
-exit 1
+# echo Booting from local disks ...
+# exit 1
+imgfree
+kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui
+imgfetch --name bcd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
+imgfetch --name boot.sdi ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
+imgfetch --name install.bat ${giturlraw}/${winver}/autounattend/x86/starter/french/legacy/install.bat install.bat
+imgfetch --name winpeshl.ini ${giturlraw}/winpeshl.ini winpeshl.ini
+imgfetch --name winpe.jpg ${giturlraw}/win10/winpe.jpg winpe.jpg || echo no background - ignored
+imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no background - ignored
+imgfetch --name autounattend.xml ${giturlraw}/win7/autounattend/x86/starter/french/legacy/autounattend.xml autounattend.xml
+imgfetch --name 7-zip.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip.dll 7-zip.dll
+imgfetch --name 7-zip32.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip32.dll 7-zip32.dll
+imgfetch --name 7z.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
+imgfetch --name 7z.exe https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
+imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
+imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim boot.wim
+boot || goto menu
 
 :shell
 echo Type "exit" to return to menu.
