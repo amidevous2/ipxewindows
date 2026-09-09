@@ -13,6 +13,7 @@ item centos ${space} CentOS
 item debian ${space} Debian
 item devuan ${space} Devuan
 item fedora ${space} Fedora
+item fedoraold ${space} Fedora Old
 item coreos ${space} Fedora CoreOS
 item flatcar ${space} Flatcar Container Linux
 item gentoo ${space} Gentoo
