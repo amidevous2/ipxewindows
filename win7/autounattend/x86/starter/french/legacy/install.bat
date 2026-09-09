@@ -112,23 +112,23 @@ mkdir S:\Cygwin\var\cache\
 mkdir S:\Cygwin\var\cache\apt\
 mkdir S:\Cygwin\var\cache\apt\packages
 setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O D:\%isoversionmin%min%arch1%.iso
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 7z x -y D:\%isoversionmin%min%arch1%.iso -oD:\
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O D:\sources\install.swm
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install2.swm -O D:\sources\install2.swm
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install3.swm -O D:\sources\install3.swm
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install4.swm -O D:\sources\install4.swm
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install5.swm -O D:\sources\install5.swm
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\Cygwin\bin\wget.exe %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O D:\autounattend.xml
-rem ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 D:\sources\setup.exe /unattend:"D:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
 rem ping 127.0.0.1 -n 31 >nul
