@@ -1,5 +1,7 @@
 #!ipxe
 
+
+
 set menu-timeout 300000
 #set menu-timeout 1
 set submenu-timeout ${menu-timeout}
