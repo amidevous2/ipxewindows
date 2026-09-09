@@ -69,8 +69,12 @@ wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8", "
 rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
 ping 127.0.0.1 -n 31 >nul
 rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
+echo ipconfig /flushdns
 ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
+ech ipconfig /renew
+ping 127.0.0.1 -n 31 >nul
+ipconfig /renew
 ping 127.0.0.1 -n 31 >nul
 echo Wait For Network
 wpeutil WaitForNetwork
