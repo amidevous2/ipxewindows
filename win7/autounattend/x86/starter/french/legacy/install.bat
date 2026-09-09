@@ -56,8 +56,6 @@ echo ipconfig /all
 ipconfig /all
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
 echo clean >> config.txt
 echo convert mbr >> config.txt
@@ -72,8 +70,6 @@ echo create partition primary size=10240 >> config.txt
 echo format fs=ntfs quick label="INSTALL" >> config.txt
 echo assign letter=D >> config.txt
 echo exit >> config.txt
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 diskpart /s config.txt
