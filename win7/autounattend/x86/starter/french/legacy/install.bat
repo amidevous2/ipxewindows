@@ -50,6 +50,7 @@ ipconfig /flushdns
 ping 127.0.0.1 -n 31 >nul
 wpeutil WaitForNetwork
 ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 echo 'select disk 0' > config.txt
 echo 'clean' >> config.txt
 echo 'convert mbr' >> config.txt
@@ -67,8 +68,17 @@ echo 'exit' >> config.txt
 
 diskpart /s config.txt
 ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+
 
 ping -n 1 google.fr
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 setup-%arch1%.exe --no-admin --root D:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l D:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
 ping 127.0.0.1 -n 31 >nul
