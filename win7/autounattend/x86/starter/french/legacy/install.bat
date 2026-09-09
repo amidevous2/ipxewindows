@@ -53,9 +53,9 @@ rem ping 127.0.0.1 -n 31 >nul
 rem ping 127.0.0.1 -n 31 >nul
 echo "liste des carte reseaux"
 rem ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 netsh interface show interface
-ping 127.0.0.1 -n 31 >nul
+rem ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ipconfig /renew
