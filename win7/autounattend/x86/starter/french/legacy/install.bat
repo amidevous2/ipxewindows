@@ -121,7 +121,8 @@ rem mkdir S:\Cygwin\var\cache\apt\packages
 rem setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
 rem ping 127.0.0.1 -n 31 >nul
 rem S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
-wget --no-check-certificate %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
+rem wget --no-check-certificate %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
+wget --no-check-certificate https://github.com/amidevous/wimboot-install/releases/download/windows10/win10minx86.iso -O S:\%isoversionmin%min%arch1%.iso
 rem ping 127.0.0.1 -n 31 >nul
 7z x -y S:\%isoversionmin%min%arch1%.iso -oS:\
 rem ping 127.0.0.1 -n 31 >nul
