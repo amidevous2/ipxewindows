@@ -48,7 +48,14 @@ netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
 ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
 ping 127.0.0.1 -n 31 >nul
+echo Wait For Network
 wpeutil WaitForNetwork
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+echo ipconfig /all
+ipconfig /all
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
