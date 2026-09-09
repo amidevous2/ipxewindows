@@ -51,28 +51,35 @@ ping 127.0.0.1 -n 31 >nul
 wpeutil WaitForNetwork
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
-echo 'select disk 0' > config.txt
-echo 'clean' >> config.txt
-echo 'convert mbr' >> config.txt
-echo 'create partition primary size=100' >> config.txt
-echo 'format fs=ntfs quick label="System"' >> config.txt
-echo 'active' >> config.txt
-echo 'create partition primary' >> config.txt
-echo 'format fs=ntfs quick label="Windows"' >> config.txt
-echo 'assign letter=C' >> config.txt
-echo 'shrink desired=10240' >> config.txt
-echo 'create partition primary size=10240' >> config.txt
-echo 'format fs=ntfs quick label="INSTALL"' >> config.txt
-echo 'assign letter=D' >> config.txt
-echo 'exit' >> config.txt
-
+echo select disk 0 > config.txt
+echo clean >> config.txt
+echo convert mbr >> config.txt
+echo create partition primary size=100 >> config.txt
+echo format fs=ntfs quick label="System" >> config.txt
+echo active >> config.txt
+echo create partition primary >> config.txt
+echo format fs=ntfs quick label="Windows" >> config.txt
+echo assign letter=C >> config.txt
+echo shrink desired=10240 >> config.txt
+echo create partition primary size=10240 >> config.txt
+echo format fs=ntfs quick label="INSTALL" >> config.txt
+echo assign letter=D >> config.txt
+echo exit >> config.txt
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 diskpart /s config.txt
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
-
-
+if exist D:\ echo D_EXISTE
+if not exist D:\ echo D_ABSENT
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
+ping 127.0.0.1 -n 31 >nul
 ping -n 1 google.fr
 ping 127.0.0.1 -n 31 >nul
 ping 127.0.0.1 -n 31 >nul
