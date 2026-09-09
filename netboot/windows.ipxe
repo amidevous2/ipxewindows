@@ -36,9 +36,9 @@ chain ${giturlraw}/netboot.ipxe
 :item2
 imgfree
 kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui
-imgfetch --name bcd ${giturl}/releases/download/windows7/bcd.x86 bcd
-imgfetch --name boot.sdi ${giturl}/releases/download/windows7/boot.sdi.x86 boot.sdi
-imgfetch --name install.bat ${giturlraw}/win7/autounattend/x86/starter/french/legacy/install.bat install.bat
+imgfetch --name bcd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
+imgfetch --name boot.sdi ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
+imgfetch --name install.bat ${giturlraw}/${winver}/autounattend/x86/starter/french/legacy/install.bat install.bat
 imgfetch --name winpeshl.ini ${giturlraw}/winpeshl.ini winpeshl.ini
 imgfetch --name winpe.jpg ${giturlraw}/win10/winpe.jpg winpe.jpg || echo no background - ignored
 imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no background - ignored
@@ -55,7 +55,7 @@ iseq ${pciid} 80860d4f && goto use_e1d68-2 ||
 iseq ${pciid} 808615fc && goto use_e1d68-2 ||
 iseq ${pciid} 808615bb && goto use_e1d68-2 ||
 iseq ${pciid} 808615be && goto use_e1d68-2 ||
-iseq ${pciid} 8086100f && goto use_e1d68-2 ||
+#iseq ${pciid} 8086100f && goto use_e1d68-2 ||
 iseq ${pciid} 8086100e && goto use_intele1000 ||
 goto skip_intele1000
 :use_intele1000
