@@ -136,6 +136,12 @@ rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/releases/download/%winversion%/install5.swm -O S:\sources\install5.swm
 rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
+dism /export-image /sourceimagefile:S:\sources\install.swm /swmfile:S:\sources\install*.swm /sourceindex:1 /destinationimagefile:S:\sources\install.wim /Compress:max /CheckIntegrity
+del /f S:\sources\install.swm
+del /f S:\sources\install2.swm
+del /f S:\sources\install3.swm
+del /f S:\sources\install4.swm
+del /f S:\sources\install5.swm
 rem ping 127.0.0.1 -n 31 >nul
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
