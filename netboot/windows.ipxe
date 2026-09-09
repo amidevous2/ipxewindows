@@ -295,10 +295,9 @@ imgfetch --name vboxwddm.cat ${giturlraw}/win7/drv/vbox/vboxwddm.cat vboxwddm.ca
 goto skip_vbox-2
 :skip_vbox-2
 imgfetch --name autounattend.xml ${giturlraw}/win7/autounattend/x86/starter/french/legacy/autounattend.xml autounattend.xml
-imgfetch --name 7-zip.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip.dll 7-zip.dll
-imgfetch --name 7-zip32.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7-zip32.dll 7-zip32.dll
-imgfetch --name 7z.dll https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.dll 7z.dll
-imgfetch --name 7z.exe https://github.com/amidevous/wimboot-install/raw/refs/heads/main/win7/autounattend/x64/legacy/7z.exe 7z.exe
+imgfetch --name 7-zip.dll https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7-zip.dll 7-zip.dll
+imgfetch --name 7z.dll https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7z.dll 7z.dll
+imgfetch --name 7z.exe https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/7z.exe 7z.exe
 #imgfetch --name setup-x86.exe https://www.cygwin.com/setup-x86.exe setup-x86.exe
 imgfetch --name wget.exe https://eternallybored.org/misc/wget/1.21.4/32/wget.exe wget.exe
 imgfetch --name boot.wim https://github.com/amidevous2/ipxewindows/releases/download/windows10/boot.i386.wim boot.wim
