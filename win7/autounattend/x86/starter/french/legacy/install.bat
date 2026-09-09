@@ -63,9 +63,12 @@ rem ipconfig /renew
 rem ping 127.0.0.1 -n 31 >nul
 net start dnscache
 ping 127.0.0.1 -n 31 >nul
-netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
+wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ()
+wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8")
+wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8", "8.8.4.4")
+rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
 ping 127.0.0.1 -n 31 >nul
-netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
+rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
 ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
 ping 127.0.0.1 -n 31 >nul
