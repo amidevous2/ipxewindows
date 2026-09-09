@@ -60,7 +60,7 @@ echo 'exit' >> config.txt
 diskpart /s config.txt
 
 ping -n 1 google.fr
-setup-%arch1%.exe --no-admin --root D:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
+setup-%arch1%.exe --no-admin --root D:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l D:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O D:\%isoversionmin%min%arch1%.iso
 7z x -y D:\%isoversionmin%min%arch1%.iso -oD:\
 D:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/install.swm -O D:\sources\install.swm
