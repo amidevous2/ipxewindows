@@ -122,9 +122,9 @@ rem setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts -
 rem ping 127.0.0.1 -n 31 >nul
 rem S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
 rem wget --no-check-certificate %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
-wget --no-check-certificate https://github.com/amidevous/wimboot-install/releases/download/windows10/win10minx86.iso -O S:\%isoversionmin%min%arch1%.iso
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows10/win10minimultix86.7z -O S:\win10minimultix86.7z
 rem ping 127.0.0.1 -n 31 >nul
-7z x -y S:\%isoversionmin%min%arch1%.iso -oS:\
+7z x -y S:\win10minimultix86.7z -oS:\
 rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/releases/download/%winversion%/install.swm -O S:\sources\install.swm
 rem ping 127.0.0.1 -n 31 >nul
@@ -143,6 +143,7 @@ del /f S:\sources\install2.swm
 del /f S:\sources\install3.swm
 del /f S:\sources\install4.swm
 del /f S:\sources\install5.swm
+del /f S:\win10minimultix86.7z
 rem ping 127.0.0.1 -n 31 >nul
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
