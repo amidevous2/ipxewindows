@@ -93,8 +93,8 @@ echo active >> config.txt
 echo create partition primary >> config.txt
 echo format fs=ntfs quick label="Windows" >> config.txt
 echo assign letter=W >> config.txt
-echo shrink desired=10240 >> config.txt
-echo create partition primary size=10240 >> config.txt
+echo shrink desired=15360 >> config.txt
+echo create partition primary size=15360 >> config.txt
 echo format fs=ntfs quick label="INSTALL" >> config.txt
 echo assign letter=S >> config.txt
 echo exit >> config.txt
