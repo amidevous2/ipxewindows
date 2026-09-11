@@ -37,8 +37,10 @@ imgfetch --name bcd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 imgfetch --name boot.sdi ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
 imgfetch --name install.bat ${giturlraw}/${winver}/autounattend/x86/starter/french/legacy/install.bat install.bat
 imgfetch --name winpeshl.ini ${giturlraw}/winpeshl.ini winpeshl.ini
-imgfetch --name winpe.jpg ${giturlraw}/win10/winpe.jpg winpe.jpg || echo no background - ignored
-imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no background - ignored
+#imgfetch --name winpe.jpg ${giturlraw}/win10/winpe.jpg winpe.jpg || echo no background - ignored
+#imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no background - ignored
+imgfetch --name winpe.jpg ${giturlraw}/win7/background_cli.bmp winpe.jpg || echo no background - ignored
+imgfetch --name setup.bmp ${giturlraw}/win7/background_cli.bmp setup.bmp || echo no background - ignored
 # E1D68
 # TODO 0d4f only installing drivers in winpe, not when getting into windows.
 # 15fc on T15 not working in winpe either
