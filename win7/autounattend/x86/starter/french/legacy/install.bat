@@ -126,15 +126,17 @@ wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/d
 rem ping 127.0.0.1 -n 31 >nul
 7z x -y S:\win10minimultix86.7z -oS:\
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/install.swm -O S:\sources\install.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx86.swm -O S:\sources\install.swm
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/install2.swm -O S:\sources\install2.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx862.swm -O S:\sources\install2.swm
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/install3.swm -O S:\sources\install3.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx863.swm -O S:\sources\install3.swm
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/install4.swm -O s:\sources\install4.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx864.swm -O s:\sources\install4.swm
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/install5.swm -O S:\sources\install5.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx865.swm -O S:\sources\install5.swm
+rem ping 127.0.0.1 -n 31 >nul
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx866.swm -O S:\sources\install6.swm
 rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
 dism /export-image /sourceimagefile:S:\sources\install.swm /swmfile:S:\sources\install*.swm /sourceindex:1 /destinationimagefile:S:\sources\install.wim /Compress:max /CheckIntegrity
