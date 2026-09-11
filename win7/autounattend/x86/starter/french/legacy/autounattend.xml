@@ -24,8 +24,8 @@
 				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
 				<NetworkLocation>Home</NetworkLocation>
 				<ProtectYourPC>2</ProtectYourPC>
-				<SkipMachineOOBE>true</SkipMachineOOBE>
-				<SkipUserOOBE>true</SkipUserOOBE>
+				<!--<SkipMachineOOBE>true</SkipMachineOOBE>
+				<SkipUserOOBE>true</SkipUserOOBE>-->
 			</OOBE>
 			<UserAccounts>
 				<LocalAccounts>
