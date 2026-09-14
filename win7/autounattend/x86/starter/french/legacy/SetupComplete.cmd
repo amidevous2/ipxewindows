@@ -12,8 +12,8 @@ mkdir "C:\Program Files\VxKex"
 mkdir "C:\Program Files\Kex32"
 xcopy /E /I /Y "%WINDIR%\Setup\Files\Core" "C:\Program Files\VxKex"
 xcopy /E /I /Y "%WINDIR%\Setup\Files\Core32" "C:\Program Files\VxKex"
-xcopy /E /I /Y "%WINDIR%\Setup\FilesKex32" "C:\Program Files\VxKex\Kex32"
-regsvr32.exe /s "C:\Program Files\VxKex\KExPropertySheet.dll"
+xcopy /E /I /Y "%WINDIR%\Setup\Files\Kex32" "C:\Program Files\VxKex\Kex32"
+regsvr32.exe /s "C:\Program Files\VxKex\KexShlEx.dll"
 for /f "tokens=2*" %%a in ('reg query "HKLM\System\CurrentControlSet\Control\Session Manager\Environment" /v Path') do reg add "HKLM\System\CurrentControlSet\Control\Session Manager\Environment" /v Path /t REG_EXPAND_SZ /d "%%b;C:\Program Files\VxKex" /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Firefox Setup 155.0.1.exe" /v "KExEnabled" /t REG_DWORD /d 1 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Firefox Setup 155.0.1.exe" /v "KExSubsystemVersion" /t REG_DWORD /d 60003 /f
