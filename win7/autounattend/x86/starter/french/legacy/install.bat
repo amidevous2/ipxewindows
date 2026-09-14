@@ -104,9 +104,8 @@ wget --no-check-certificate "https://dev.azure.com/massgrave/Microsoft-Activatio
 wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/msdownload/update/software/crup/2011/05/windows6.1-kb2533552-x86_f2061d1c40b34f88efbe55adf6803d278aa67064.msu" -O "S:\sources\$OEM$\$$\Setup\Files\windows6.1-kb2533552-x86.msu"
 wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/d/msdownload/update/software/uprl/2026/09/windows-kb890830-v5.145_6c373e8ded862ef5c962500b945a812317c486f4.exe" -O "S:\sources\$OEM$\$$\Setup\Files\windows-kb890830-v5.145.exe"
 wget --no-check-certificate "https://github.com/i486/VxKex/releases/download/Version1.2.1.2229/KexSetup_Debug_1_2_1_2229.exe" -O "S:\sources\$OEM$\$$\Setup\Files\KexSetup_Debug_1_2_1_2229.exe"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/SetupComplete.cmd" -O "S:\sources\$OEM$\$$\Setup\Scripts\SetupComplete.cmd"
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
-if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
-rem ping 127.0.0.1 -n 31 >nul
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
 if exist x:\Windows\System32\balloon.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\balloon.inf
 if exist x:\Windows\System32\netkvm.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\netkvm.inf
@@ -136,8 +135,4 @@ if exist x:\Windows\System32\vmmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\
 if exist x:\Windows\System32\e1c6232.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1c6232.inf
 if exist x:\Windows\System32\vmusbmouse.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmusbmouse.inf
 if exist x:\Windows\System32\vmxnet3.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\vmxnet3.inf
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
-ping 127.0.0.1 -n 31 >nul
 shutdown -r -t 1
