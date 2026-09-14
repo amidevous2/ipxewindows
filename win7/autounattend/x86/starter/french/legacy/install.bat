@@ -1,6 +1,5 @@
 @echo off
 wpeinit
-set giturl=https://github.com/amidevous2/ipxewindows
 set gitbcommit=main
 set winversion=windows7
 set winversionmin=w7
@@ -49,41 +48,12 @@ if exist x:\Windows\System32\ixn6232.inf drvload x:\Windows\System32\ixn6232.inf
 if exist x:\Windows\System32\ixs6232.inf drvload x:\Windows\System32\ixs6232.inf
 if exist x:\Windows\System32\ixt6232.inf drvload x:\Windows\System32\ixt6232.inf
 if exist x:\Windows\System32\sxb6232.inf drvload x:\Windows\System32\sxb6232.inf
-echo ipconfig /all
-ipconfig /all
-rem ping 127.0.0.1 -n 31 >nul
-echo "liste des carte reseaux"
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-rem netsh interface show interface
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-rem ipconfig /renew
-rem ping 127.0.0.1 -n 31 >nul
 net start dnscache
-rem ping 127.0.0.1 -n 31 >nul
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ()
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8")
 wmic nicconfig where (IPEnabled=TRUE) call SetDNSServerSearchOrder ("8.8.8.8", "8.8.4.4")
-rem netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 primary
-rem ping 127.0.0.1 -n 31 >nul
-rem netsh interface ipv4 set winsservers name="Ethernet" static 8.8.8.8
-echo ipconfig /flushdns
-rem ping 127.0.0.1 -n 31 >nul
 ipconfig /flushdns
-rem echo ipconfig /renew
-rem ping 127.0.0.1 -n 31 >nul
-rem ipconfig /renew
-rem ping 127.0.0.1 -n 31 >nul
-echo Wait For Network
 wpeutil WaitForNetwork
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-echo ipconfig /all
-ipconfig /all
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
 echo select disk 0 > config.txt
 echo clean >> config.txt
 echo convert mbr >> config.txt
@@ -98,49 +68,22 @@ echo create partition primary size=15360 >> config.txt
 echo format fs=ntfs quick label="INSTALL" >> config.txt
 echo assign letter=S >> config.txt
 echo exit >> config.txt
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
 diskpart /s config.txt
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
 echo "liste des partition"
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
 echo list disk > list.txt
 echo exit >> list.txt
 diskpart /s list.txt
-rem ping 127.0.0.1 -n 31 >nul
 ping -n 1 google.fr
-rem ping 127.0.0.1 -n 31 >nul
-rem ping 127.0.0.1 -n 31 >nul
-rem mkdir S:\Cygwin\
-rem mkdir S:\Cygwin\var\
-rem mkdir S:\Cygwin\var\cache\
-rem mkdir S:\Cygwin\var\cache\apt\
-rem mkdir S:\Cygwin\var\cache\apt\packages
-rem setup-%arch1%.exe --no-admin --root S:\Cygwin\ --quiet-mode --no-shortcuts --no-startmenu --allow-unsupported-windows --arch %arch1% --force-current --no-desktop --no-replaceonreboot --no-verify --no-version-check --no-warn-deprecated-windows --no-write-registry --only-site --site %cygmirror% -l S:\Cygwin\var\cache\apt\packages --packages dos2unix,wget,ca-certificates
-rem ping 127.0.0.1 -n 31 >nul
-rem S:\Cygwin\bin\wget.exe %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
-rem wget --no-check-certificate %giturl%/releases/download/%winversion%/%isoversionmin%min%arch1%.iso -O S:\%isoversionmin%min%arch1%.iso
 wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/win7minimultix86.7z -O S:\win7minimultix86.7z
-rem ping 127.0.0.1 -n 31 >nul
 7z x -y S:\win7minimultix86.7z -oS:\
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx86.swm -O S:\sources\install.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx862.swm -O S:\sources\install2.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx863.swm -O S:\sources\install3.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx864.swm -O s:\sources\install4.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx865.swm -O S:\sources\install5.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx866.swm -O S:\sources\install6.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx867.swm -O S:\sources\install7.swm
-rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx86.swm -O S:\sources\install.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx862.swm -O S:\sources\install2.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx863.swm -O S:\sources\install3.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx864.swm -O s:\sources\install4.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx865.swm -O S:\sources\install5.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx866.swm -O S:\sources\install6.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx867.swm -O S:\sources\install7.swm
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
 dism /export-image /sourceimagefile:S:\sources\install.swm /swmfile:S:\sources\install*.swm /sourceindex:1 /destinationimagefile:S:\sources\install.wim /Compress:max /CheckIntegrity
 del /f S:\sources\install.swm
 del /f S:\sources\install2.swm
@@ -150,7 +93,17 @@ del /f S:\sources\install5.swm
 del /f S:\sources\install6.swm
 del /f S:\sources\install7.swm
 del /f S:\win7minimultix86.7z
-rem ping 127.0.0.1 -n 31 >nul
+mkdir "S:\sources\$OEM$\"
+mkdir "S:\sources\$OEM$\$$\"
+mkdir "S:\sources\$OEM$\$$\Setup\"
+mkdir "S:\sources\$OEM$\$$\Setup\Files"
+mkdir "S:\sources\$OEM$\$$\Setup\Scripts"
+wget --no-check-certificate "https://github.com/ip7z/7zip/releases/download/26.03/7z2603.exe" -O "S:\sources\$OEM$\$$\Setup\Files\7z2603.exe"
+wget --no-check-certificate "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x32-701fr.exe" -O "S:\sources\$OEM$\$$\Setup\Files\winrar-x32-701fr.exe"
+wget --no-check-certificate "https://dev.azure.com/massgrave/Microsoft-Activation-Scripts/_apis/git/repositories/Microsoft-Activation-Scripts/items?path=/MAS/All-In-One-Version-KL/MAS_AIO.cmd&download=true" -O "S:\sources\$OEM$\$$\Setup\Files\MAS_AIO.cmd"
+wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/msdownload/update/software/crup/2011/05/windows6.1-kb2533552-x86_f2061d1c40b34f88efbe55adf6803d278aa67064.msu" -O "S:\sources\$OEM$\$$\Setup\Files\windows6.1-kb2533552-x86.msu"
+wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/d/msdownload/update/software/uprl/2026/09/windows-kb890830-v5.145_6c373e8ded862ef5c962500b945a812317c486f4.exe" -O "S:\sources\$OEM$\$$\Setup\Files\windows-kb890830-v5.145.exe"
+wget --no-check-certificate "https://github.com/i486/VxKex/releases/download/Version1.2.1.2229/KexSetup_Debug_1_2_1_2229.exe" -O "S:\sources\$OEM$\$$\Setup\Files\KexSetup_Debug_1_2_1_2229.exe"
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if %gitbcommit%==win10 Dism /Image:C:\ /enable-feature /featurename:NetFx3 /All /Source:"D:\sources\sxs" /LimitAccess /NoRestart /LogLevel:4
 rem ping 127.0.0.1 -n 31 >nul
