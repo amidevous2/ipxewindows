@@ -138,7 +138,7 @@ wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx865.
 rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx866.swm -O S:\sources\install6.swm
 rem ping 127.0.0.1 -n 31 >nul
-wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx866.swm -O S:\sources\install7.swm
+wget --no-check-certificate %giturl%/releases/download/%winversion%/starterx867.swm -O S:\sources\install7.swm
 rem ping 127.0.0.1 -n 31 >nul
 wget --no-check-certificate %giturl%/raw/refs/heads/main/win7/autounattend/x86/starter/french/legacy/autounattend.xml -O S:\autounattend.xml
 dism /export-image /sourceimagefile:S:\sources\install.swm /swmfile:S:\sources\install*.swm /sourceindex:1 /destinationimagefile:S:\sources\install.wim /Compress:max /CheckIntegrity
