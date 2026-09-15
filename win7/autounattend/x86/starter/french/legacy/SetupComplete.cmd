@@ -10,7 +10,7 @@ rem %WINDIR%\Setup\Files\windows-kb890830-v5.145.exe /quiet
 rem "%WINDIR%\Setup\Files\winrar-x32-701fr.exe" /S
 rem "%WINDIR%\Setup\Files\KexSetup_Release_1_2_1_2229.exe" /SILENTUNATTEND
 rem "C:\Program Files\VxKex\KexCfg.exe" /EXE:"%WINDIR%\Setup\Files\Firefox Setup 155.0.1.exe" /ENABLE:1 /WINVERSPOOF:WIN10
-rem "%WINDIR%\Setup\Files\Firefox Setup 115.40.0esr.exe" /S"
+"%WINDIR%\Setup\Files\Firefox Setup 115.40.0esr.exe" /S"
 rem "C:\Program Files\VxKex\KexCfg.exe" /EXE:"C:\Program Files\Mozilla Firefox\firefox.exe" /ENABLE:1 /WINVERSPOOF:WIN10
 rem "C:\Program Files\VxKex\KexCfg.exe" /EXE:"C:\Program Files\Mozilla Firefox\crashhelper.exe" /ENABLE:1 /WINVERSPOOF:WIN10
 rem "C:\Program Files\VxKex\KexCfg.exe" /EXE:"C:\Program Files\Mozilla Firefox\crashreporter.exe" /ENABLE:1 /WINVERSPOOF:WIN10
