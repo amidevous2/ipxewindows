@@ -1,5 +1,11 @@
 @echo off
 
+"reg" import "%WINDIR%\Setup\Files\UAC0.reg"
+net stop wuauserv > nul
+"reg" import "%WINDIR%\Setup\Files\winupdate1.reg" > nul
+
+rd "%windir%\softwaredistribution" /s /q > nul
+
 "%WINDIR%\Setup\Files\7z2603.exe" /S /D="C:\Program Files\7-Zip
 
 %WINDIR%\Setup\Files\MAS_AIO.cmd /Z-Windows /S
