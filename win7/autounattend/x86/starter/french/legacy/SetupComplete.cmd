@@ -1,7 +1,7 @@
 @echo off
 CLS&@TITLE Tâches Post-Setup
 rem diskpart /s "%WINDIR%\Setup\Files\extend.txt"
-rem "%WINDIR%\Setup\Files\7z2603.exe" /S /D="C:\Program Files\7-Zip"
+"%WINDIR%\Setup\Files\7z2603.exe" /S /D="C:\Program Files\7-Zip"
 rem cd "%WINDIR%\Setup\Files\"
 rem "C:\Program Files\7-Zip\7z.exe" x windows6.1-kb2533552-x86.msu
 rem DISM /Online /Add-Package /PackagePath:"%WINDIR%\Setup\Files\Windows6.1-KB2533552-x86.cab"
