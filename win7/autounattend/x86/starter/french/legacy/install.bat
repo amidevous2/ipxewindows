@@ -106,6 +106,7 @@ wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/d/msdo
 wget --no-check-certificate "https://github.com/i486/VxKex/releases/download/Version1.2.1.2229/KexSetup_Debug_1_2_1_2229.exe" -O "S:\sources\$OEM$\$$\Setup\Files\KexSetup_Debug_1_2_1_2229.exe"
 wget --no-check-certificate "https://ftp.mozilla.org/pub/firefox/releases/115.40.0esr/win32/fr/Firefox Setup 115.40.0esr.exe" -O "S:\sources\$OEM$\$$\Setup\Files\Firefox Setup 115.40.0esr.exe"
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/SetupComplete.cmd" -O "S:\sources\$OEM$\$$\Setup\Scripts\SetupComplete.cmd"
+wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/extend.txt -O "S:\sources\$OEM$\$$\Setup\Files\extend.txt"
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
 if exist x:\Windows\System32\balloon.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\balloon.inf
