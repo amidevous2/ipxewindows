@@ -106,11 +106,11 @@ wget --no-check-certificate "https://catalog.s.download.windowsupdate.com/d/msdo
 wget --no-check-certificate "https://github.com/i486/VxKex/releases/download/Version1.2.1.2229/KexSetup_Debug_1_2_1_2229.exe" -O "S:\sources\$OEM$\$$\Setup\Files\KexSetup_Debug_1_2_1_2229.exe"
 wget --no-check-certificate "https://ftp.mozilla.org/pub/firefox/releases/115.40.0esr/win32/fr/Firefox Setup 115.40.0esr.exe" -O "S:\sources\$OEM$\$$\Setup\Files\Firefox Setup 115.40.0esr.exe"
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/1c971bbd1c2b63c98922b3f75722f40c99b1cae7/win7/autounattend/x86/starter/french/legacy/SetupComplete.cmd" -O "S:\sources\$OEM$\$$\Setup\Scripts\SetupComplete.cmd"
-wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/extend.txt -O "S:\sources\$OEM$\$$\Setup\Files\extend.txt"
-wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/1bc2a380c3511264f7126c029c421b0c9c407ad8/win7/autounattend/x86/starter/french/legacy/UAC0.reg -O "S:\sources\$OEM$\$$\Setup\Files\UAC0.reg"
-wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/b5da9483773f1d7cd5c2f48676a71c4a03195ed9/win7/autounattend/x86/starter/french/legacy/UAC5.reg -O "S:\sources\$OEM$\$$\Setup\Files\UAC5.reg"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/extend.txt" -O "S:\sources\$OEM$\$$\Setup\Files\extend.txt"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/1bc2a380c3511264f7126c029c421b0c9c407ad8/win7/autounattend/x86/starter/french/legacy/UAC0.reg" -O "S:\sources\$OEM$\$$\Setup\Files\UAC0.reg"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/b5da9483773f1d7cd5c2f48676a71c4a03195ed9/win7/autounattend/x86/starter/french/legacy/UAC5.reg" -O "S:\sources\$OEM$\$$\Setup\Files\UAC5.reg"
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/b55e3bb6ee644c41e0e82d5cc764266b5e10c229/win7/autounattend/x86/starter/french/legacy/SetupComplete2.cmd" -O "S:\sources\$OEM$\$$\Setup\Files\SetupComplete2.cmd"
-
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/5030cc7b393813b98dd098ba6db20f2e3d3b5dc7/win7/autounattend/x86/starter/french/legacy/SetupReboot.cmd" -O "S:\sources\$OEM$\$$\Setup\Files\SetupReboot.cmd"
 
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
