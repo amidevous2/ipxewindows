@@ -24,8 +24,8 @@
 				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
 				<NetworkLocation>Home</NetworkLocation>
 				<ProtectYourPC>2</ProtectYourPC>
-				<!--<SkipMachineOOBE>true</SkipMachineOOBE>
-				<SkipUserOOBE>true</SkipUserOOBE>-->
+				<SkipMachineOOBE>true</SkipMachineOOBE>
+				<SkipUserOOBE>true</SkipUserOOBE>
 			</OOBE>
 			<UserAccounts>
 				<LocalAccounts>
@@ -93,7 +93,7 @@
 			<UserData>
 				<AcceptEula>true</AcceptEula>
 				<ProductKey>
-					<Key>2V3W2-JXTTR-28RD8-R228D-KR69C</Key>
+					<Key></Key>
 					<WillShowUI>Never</WillShowUI>
 				</ProductKey>
 			</UserData>
