@@ -109,6 +109,7 @@ wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewi
 wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/refs/heads/main/win7/autounattend/x86/starter/french/legacy/extend.txt -O "S:\sources\$OEM$\$$\Setup\Files\extend.txt"
 wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/1bc2a380c3511264f7126c029c421b0c9c407ad8/win7/autounattend/x86/starter/french/legacy/UAC0.reg -O "S:\sources\$OEM$\$$\Setup\Files\UAC0.reg"
 wget --no-check-certificate https://raw.githubusercontent.com/amidevous2/ipxewindows/b5da9483773f1d7cd5c2f48676a71c4a03195ed9/win7/autounattend/x86/starter/french/legacy/UAC5.reg -O "S:\sources\$OEM$\$$\Setup\Files\UAC5.reg"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/b55e3bb6ee644c41e0e82d5cc764266b5e10c229/win7/autounattend/x86/starter/french/legacy/SetupComplete2.cmd" -O "S:\sources\$OEM$\$$\Setup\Files\SetupComplete2.cmd"
 
 
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
