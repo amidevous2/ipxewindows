@@ -113,6 +113,7 @@ wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewi
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/5030cc7b393813b98dd098ba6db20f2e3d3b5dc7/win7/autounattend/x86/starter/french/legacy/SetupReboot.cmd" -O "S:\sources\$OEM$\$$\Setup\Files\SetupReboot.cmd"
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/ab6984c296235bb8bf62c164820286718610c033/win7/autounattend/x86/starter/french/legacy/Winupdate1.reg" -O "S:\sources\$OEM$\$$\Setup\Files\Winupdate1.reg"
 wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/5ffacde4dbfe61238185909c4c840e1036e01ec0/win7/autounattend/x86/starter/french/legacy/Winupdate2.reg" -O "S:\sources\$OEM$\$$\Setup\Files\Winupdate2.reg"
+wget --no-check-certificate "https://raw.githubusercontent.com/amidevous2/ipxewindows/99830fa92bda8696cfc7c6f65621e21830a385f6/win7/autounattend/x86/starter/french/legacy/nircmd.exe" -O "S:\sources\$OEM$\$$\Setup\Files\nircmd.exe"
 
 S:\sources\setup.exe /unattend:"S:\autounattend.xml" /noreboot
 if exist x:\Windows\System32\e1d68x64.inf Dism /Image:C:\ /Add-Driver /Driver:X:\Windows\System32\e1d68x64.inf
