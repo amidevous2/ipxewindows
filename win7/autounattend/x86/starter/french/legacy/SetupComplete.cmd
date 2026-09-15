@@ -1,5 +1,6 @@
 @echo off
 CLS&@TITLE Tâches Post-Setup
+diskpart /s "%WINDIR%\Setup\Files\extend.txt"
 "%WINDIR%\Setup\Files\7z2603.exe" /S /D="C:\Program Files\7-Zip"
 cd "%WINDIR%\Setup\Files\"
 "C:\Program Files\7-Zip\7z.exe" x windows6.1-kb2533552-x86.msu
