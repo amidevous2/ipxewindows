@@ -6,8 +6,7 @@
 
 "%WINDIR%\Setup\Files\Firefox Setup 115.40.0esr.exe" /S
 
-del /q /f "%~f0"
-
 rd /q /s "%WINDIR%\Setup\Files"
-
-del /q /f "%0"
+rd /q /s "%WINDIR%\Setup\Scripts"
+rd /q /s "%WINDIR%\Setup\Updates"
+rd /q /s "%WINDIR%\Setup"
