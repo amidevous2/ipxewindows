@@ -1,7 +1,5 @@
 @echo off
 
-CLS&@TITLE Tâches Post-Setup
-
 "%WINDIR%\Setup\Files\7z2603.exe" /S /D="C:\Program Files\7-Zip
 
 %WINDIR%\Setup\Files\MAS_AIO.cmd /Z-Windows /S
