@@ -12,6 +12,11 @@ rd "%windir%\softwaredistribution" /s /q > nul
 
 "%WINDIR%\Setup\Files\Firefox Setup 115.40.0esr.exe" /S
 
+rd "%windir%\softwaredistribution" /s /q > nul
+"reg" import "%WINDIR%\Setup\Files\UAC5.reg"
+"reg" import "%WINDIR%\Setup\Files\winupdate2.reg" > nul
+net start wuauserv > nul
+
 rd /q /s "%WINDIR%\Setup\Files"
 rd /q /s "%WINDIR%\Setup\Scripts"
 rd /q /s "%WINDIR%\Setup\Updates"
