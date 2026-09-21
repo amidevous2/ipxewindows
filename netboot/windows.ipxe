@@ -35,7 +35,7 @@ imgfree
 kernel https://github.com/ipxe/wimboot/releases/download/v2.9.0/wimboot.i386 wimboot gui
 imgfetch --name bcd ${giturl}/releases/download/${winversion}/bcd.x86 bcd
 imgfetch --name boot.sdi ${giturl}/releases/download/${winversion}/boot.sdi.x86 boot.sdi
-imgfetch --name install.bat https://raw.githubusercontent.com/amidevous2/ipxewindows/9fd910faac82a569a46497777930a6517f6ac662/win7/autounattend/x86/starter/french/legacy/install.bat install.bat
+imgfetch --name install.bat https://raw.githubusercontent.com/amidevous2/ipxewindows/bbb486f4abe835c3b4dbb9312fc3fdcce35c637e/win7/autounattend/x86/starter/french/legacy/install.bat install.bat
 imgfetch --name winpeshl.ini ${giturlraw}/winpeshl.ini winpeshl.ini
 #imgfetch --name winpe.jpg ${giturlraw}/win10/winpe.jpg winpe.jpg || echo no background - ignored
 #imgfetch --name setup.bmp ${giturlraw}/win10/winpe.jpg setup.bmp || echo no background - ignored
