@@ -74,7 +74,7 @@ echo list disk > list.txt
 echo exit >> list.txt
 diskpart /s list.txt
 ping -n 1 google.fr
-wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/win7minimultix86.7z -O S:\win7minimultix86.7z
+wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/fr-fr_win7_22h2_x86mini.7z -O S:\win7minimultix86.7z
 7z x -y S:\win7minimultix86.7z -oS:\
 wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx86.swm -O S:\sources\install.swm
 wget --no-check-certificate https://github.com/amidevous2/ipxewindows/releases/download/windows7/starterx862.swm -O S:\sources\install2.swm
